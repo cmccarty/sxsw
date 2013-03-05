@@ -1,0 +1,2834 @@
+<html>
+<head>
+<style type="text/css">
+/**
+ * HTML5 ✰ Boilerplate
+ *
+ * style.css contains a reset, font normalization and some base styles.
+ *
+ * Credit is left where credit is due.
+ * Much inspiration was taken from these projects:
+ * - yui.yahooapis.com/2.8.1/build/base/base.css
+ * - camendesign.com/design/
+ * - praegnanz.de/weblog/htmlcssjs-kickstart
+ */
+
+
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+sup { vertical-align: super; }
+sub { vertical-align: sub; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; content: none; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+
+body { font:13px/1.231 sans-serif; *font-size:small; } /* Hack retained to preserve specificity */
+select, input, textarea, button { font:99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+em,i { font-style: italic; }
+b,strong { font-weight: bold; }
+
+</style>
+<style type="text/css">
+
+/* Flexible box model classes */
+/* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
+ 
+.hbox {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: stretch;
+ 
+	display: -moz-box;
+	-moz-box-orient: horizontal;
+	-moz-box-align: stretch;
+ 
+	display: box;
+	box-orient: horizontal;
+	box-align: stretch;
+}
+ 
+.hbox > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+ 
+.vbox {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: stretch;
+ 
+	display: -moz-box;
+	-moz-box-orient: vertical;
+	-moz-box-align: stretch;
+ 
+	display: box;
+	box-orient: vertical;
+	box-align: stretch;
+}
+ 
+.vbox > * {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+  
+.reverse {
+	-webkit-box-direction: reverse;
+	-moz-box-direction: reverse;
+	box-direction: reverse;
+}
+ 
+.box-flex0 {
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	box-flex: 0;
+}
+ 
+.box-flex1, .box-flex {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+ 
+.box-flex2 {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	box-flex: 2;
+}
+ 
+.box-group1 {
+	-webkit-box-flex-group: 1;
+	-moz-box-flex-group: 1;
+	box-flex-group: 1;
+}
+ 
+.box-group2 {
+	-webkit-box-flex-group: 2;
+	-moz-box-flex-group: 2;
+	box-flex-group: 2;
+}
+ 
+.start {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	box-pack: start;
+}
+ 
+.end {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+}
+ 
+.center {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+}
+
+</style>
+<style type="text/css">
+/**
+ * Primary styles
+ *
+ * Author: IPython Development Team
+ */
+
+
+body {
+    overflow: hidden;
+}
+
+span#save_widget {
+    padding: 5px;
+    margin: 0px 0px 0px 300px;
+    display:inline-block;
+}
+
+span#notebook_name {
+    height: 1em;
+    line-height: 1em;
+    padding: 3px;
+    border: none;
+    font-size: 146.5%;
+}
+
+.ui-menubar-item .ui-button .ui-button-text {
+    padding: 0.4em 1.0em;
+    font-size: 100%;
+}
+
+.ui-menu {
+  -moz-box-shadow:    0px 6px 10px -1px #adadad;
+  -webkit-box-shadow: 0px 6px 10px -1px #adadad;
+  box-shadow:         0px 6px 10px -1px #adadad;
+}
+
+.ui-menu .ui-menu-item a {
+    border: 1px solid transparent;
+    padding: 2px 1.6em;
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus {
+    margin: 0;
+}
+
+.ui-menu hr {
+    margin: 0.3em 0;
+}
+
+#menubar_container {
+    position: relative;
+}
+
+#notification {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    height: 25px;
+    padding: 3px 6px;
+    z-index: 10;
+}
+
+#toolbar {
+    padding: 3px 15px;
+}
+
+#cell_type {
+    font-size: 85%;
+}
+
+
+div#main_app {
+    width: 100%;
+    position: relative;
+}
+
+span#quick_help_area {
+    position: static;
+    padding: 5px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.help_string {
+    float: right;
+    width: 170px;
+    padding: 0px 5px;
+    text-align: left;
+    font-size: 85%;
+}
+
+.help_string_label {
+    float: right;
+    font-size: 85%;
+}
+
+div#notebook_panel {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+div#notebook {
+    overflow-y: scroll;
+    overflow-x: auto;
+    width: 100%;
+    /* This spaces the cell away from the edge of the notebook area */
+    padding: 5px 5px 15px 5px;
+    margin: 0px;
+    background-color: white;
+}
+
+div#pager_splitter {
+    height: 8px;
+}
+
+div#pager {
+    padding: 15px;
+    overflow: auto;
+    display: none;
+}
+
+div.ui-widget-content {
+    border: 1px solid #aaa;
+    outline: none;
+}
+
+.cell {
+    border: 1px solid transparent;
+}
+
+div.cell {
+    width: 100%;
+    padding: 5px 5px 5px 0px;
+    /* This acts as a spacer between cells, that is outside the border */
+    margin: 2px 0px 2px 0px;
+}
+
+div.code_cell {
+    background-color: white;
+}
+
+/* any special styling for code cells that are currently running goes here */
+div.code_cell.running {
+}
+
+div.prompt {
+    /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+    width: 11ex;
+    /* This 0.4em is tuned to match the padding on the CodeMirror editor. */
+    padding: 0.4em;
+    margin: 0px;
+    font-family: monospace;
+    text-align:right;
+}
+
+div.input {
+    page-break-inside: avoid;
+	margin-top: 10px;
+}
+
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #f7f7f7;
+}
+
+div.input_prompt {
+    color: navy;
+    border-top: 1px solid transparent;
+}
+
+div.output_wrapper {
+    /* This is a spacer between the input and output of each cell */
+    margin-top: 5px;
+    margin-left: 5px;
+    /* FF needs explicit width to stretch */
+    width: 100%;
+    /* this position must be relative to enable descendents to be absolute within it */
+    position: relative;
+
+	margin-bottom: 30px;
+}
+
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  
+  overflow: auto;
+  border-radius: 3px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, .8);
+}
+
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin-right: 5px;
+}
+
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px;
+  position: absolute;
+  border-radius: 3px;
+}
+
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+
+div.output_prompt {
+    color: darkred;
+    /* 5px right shift to account for margin in parent container */
+    margin: 0 5px 0 -5px;
+}
+
+/* This class is the outer container of all output sections. */
+div.output_area {
+    padding: 0px;
+    page-break-inside: avoid;
+}
+
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+    padding: 0.4em 0.4em 0.4em 0.4em;
+}
+
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+
+/* all text output has this class: */
+div.output_text {
+    text-align: left;
+    color: black;
+    font-family: monospace;
+}
+
+/* stdout/stderr are 'text' as well as 'stream', but pyout/pyerr are *not* streams */
+div.output_stream {
+    padding-top: 0.0em;
+    padding-bottom: 0.0em;
+}
+div.output_stdout {
+}
+div.output_stderr {
+    background: #fdd; /* very light red background for stderr */
+}
+
+div.output_latex {
+    text-align: left;
+    color: black;
+}
+
+div.output_html {
+}
+
+div.output_png {
+}
+
+div.output_jpeg {
+}
+
+div.text_cell {
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+}
+
+div.text_cell_input {
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #f7f7f7;
+}
+
+div.text_cell_render {
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    outline: none;
+    resize: none;
+    width:  inherit;
+    border-style: none;
+    padding: 5px;
+    color: black;
+}
+
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font. 
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+
+.CodeMirror {
+    line-height: 1.231;  /* Changed from 1em to our global default */
+}
+
+.CodeMirror-scroll {
+    height: auto;     /* Changed to auto to autogrow */
+    /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+    /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+    overflow-y: hidden;
+    overflow-x: auto; /* Changed from auto to remove scrollbar */
+}
+
+/* CSS font colors for translated ANSI colors. */
+
+
+.ansiblack {color: black;}
+.ansired {color: darkred;}
+.ansigreen {color: darkgreen;}
+.ansiyellow {color: brown;}
+.ansiblue {color: darkblue;}
+.ansipurple {color: darkviolet;}
+.ansicyan {color: steelblue;}
+.ansigrey {color: grey;}
+.ansibold {font-weight: bold;}
+
+.completions {
+    position: absolute;
+    z-index: 10;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+.completions select {
+    background: white;
+    outline: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: auto;
+    font-family: monospace;
+}
+
+option.context {
+  background-color: #DEF7FF;
+}
+option.introspection {
+  background-color: #EBF4EB;
+}
+
+/*fixed part of the completion*/
+.completions p b {
+    font-weight:bold;
+}
+
+.completions p {
+    background: #DDF;
+    /*outline: none;
+    padding: 0px;*/
+    border-bottom: black solid 1px;
+    padding: 1px;
+    font-family: monospace;
+}
+
+pre.dialog {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0.4em;
+    padding-left: 2em;
+}
+
+p.dialog {
+    padding : 0.2em;
+}
+
+.shortcut_key {
+    display: inline-block;
+    width: 15ex;
+    text-align: right;
+    font-family: monospace;
+}
+
+.shortcut_descr {
+}
+
+/* Word-wrap output correctly.  This is the CSS3 spelling, though Firefox seems
+   to not honor it correctly.  Webkit browsers (Chrome, rekonq, Safari) do.
+ */
+pre, code, kbd, samp { white-space: pre-wrap; }
+
+#fonttest {
+    font-family: monospace;
+}
+
+</style>
+<style type="text/css">
+.rendered_html {color: black;}
+.rendered_html em {font-style: italic;}
+.rendered_html strong {font-weight: bold;}
+.rendered_html u {text-decoration: underline;}
+.rendered_html :link { text-decoration: underline }
+.rendered_html :visited { text-decoration: underline }
+.rendered_html h1 {font-size: 197%; margin: .65em 0; font-weight: bold;}
+.rendered_html h2 {font-size: 153.9%; margin: .75em 0; font-weight: bold;}
+.rendered_html h3 {font-size: 123.1%; margin: .85em 0; font-weight: bold;}
+.rendered_html h4 {font-size: 100% margin: 0.95em 0; font-weight: bold;}
+.rendered_html h5 {font-size: 85%; margin: 1.5em 0; font-weight: bold;}
+.rendered_html h6 {font-size: 77%; margin: 1.65em 0; font-weight: bold;}
+.rendered_html ul {list-style:disc; margin: 1em 2em;}
+.rendered_html ul ul {list-style:square; margin: 0em 2em;}
+.rendered_html ul ul ul {list-style:circle; margin-left: 0em 2em;}
+.rendered_html ol {list-style:upper-roman; margin: 1em 2em;}
+.rendered_html ol ol {list-style:upper-alpha; margin: 0em 2em;}
+.rendered_html ol ol ol {list-style:decimal; margin: 0em 2em;}
+.rendered_html ol ol ol ol {list-style:lower-alpha; margin 0em 2em;}
+.rendered_html ol ol ol ol ol {list-style:lower-roman; 0em 2em;}
+
+.rendered_html hr {
+    color: black;
+    background-color: black;
+}
+
+.rendered_html pre {
+    margin: 1em 2em;
+}
+
+.rendered_html blockquote {
+    margin: 1em 2em;
+}
+
+.rendered_html table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 1em 2em;
+}
+
+.rendered_html td {
+    border: 1px solid black;
+    text-align: left;
+    vertical-align: middle;
+    padding: 4px;
+}
+
+.rendered_html th {
+    border: 1px solid black;
+    text-align: left;
+    vertical-align: middle;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.rendered_html tr {
+    border: 1px solid black;
+}    
+
+.rendered_html p + p {
+    margin-top: 1em;
+}
+
+
+</style>
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export
+
+*/
+body {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.4em;
+}
+
+</style>
+<style type="text/css">
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+<script type="text/javascript"src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+
+</script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+</head>
+<body>
+<div style="position:absolute; right:1em; top:1em; padding:0.4em; border:1px dashed black;">
+  <a href="https://raw.github.com/cmccarty/sxsw/master/SXSW%20Travel%20Hackathon%20-%20TripAdvisor%20API.ipynb">Download notebook</a>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>
+  Trip Advisor API Examples
+</h1>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below are examples for all of the API endpoints made available through the Trip Advisor API.</p>
+
+<p>
+The core operations are:<br/>
+- <a href="#location">Location (/location)</a><br>
+- <a href="#reviews">Reviews (/reviews)</a><br>
+- <a href="#nearby">Nearby (/map)</a><br>
+- <a href="#search">Search (/search)</a>
+</p>
+
+<p>Search allows you to search by keywords for matching locations (hotels, restaurants, attractions, or geos). You can restrict searches to a particular geo (eg Austin), as well as certain category types (eg. restaurants).</p>
+
+<p>Nearby allows you to specify a lat/lon pair to search near. You can set a radius if you like, and order by proximity or popularity. You can also add category types, a geo, or a search query to further filter.</p>
+
+<p>Location allows you to get more information about a location. If you don't specify any connections, you will get meta data (name, address, num_reviews, ratings, etc). You can also specify /attractions, /restaurants, /hotels to list other location types within a geo. You can get more results by paging with offset, limit.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+  Docs
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can find further documentation here: <a href="http://api.tripadvisor.com/api/mobex/1.1/doc?key=[API_KEY]" target="_blank">http://api.tripadvisor.com/api/mobex/1.1/doc?key=[API_KEY]</a></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">	
+<p><a name="location"></a></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+  Location
+</h2>
+</div>
+Get information about a place (e.g. hotel, restaurant, attraction, or geo)
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">&#39;90880b62-09e9-4c2a-9cea-27a1bc669261&#39;</span>
+<span class="n">geo_id</span> <span class="o">=</span> <span class="mi">30196</span> <span class="c"># location_id for Austin, TX</span>
+
+<span class="c"># print out the JSON data for Austin, TX</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/location/</span><span class="si">%d</span><span class="s">?key=</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">geo_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: {
+    &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Tourism-g30196-m14131-Austin_Texas-Vacations.html&quot;,
+    &quot;reviews&quot;: [
+      {
+        &quot;summary&quot;: &quot;...but Contigo managed to do it! Although this restobar is cute and well-branded, its food isn\u0027t all that\u0027s lacking. Pair a poorly-grilled cheese with a remote location and mildly incompetent...&quot;,
+        &quot;author&quot;: &quot;leaveyourdailyhell&quot;,
+        &quot;title&quot;: &quot;It\u0027s pretty hard to eff up a grilled cheese...&quot;,
+        &quot;rating&quot;: 2,
+        &quot;date&quot;: &quot;Mar 5, 2013 3:58:17 AM&quot;,
+        &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d2443468-r153753641-m14131-Contigo_Austin-Austin_Texas.html#review153753641&quot;
+      },
+      {
+        &quot;summary&quot;: &quot;This hotel far surpassed our expectations.  The location was perfect--near the interstates, airport, attractions and restaurants.  The beds were extremely comfortable- as if we were staying in our...&quot;,
+        &quot;author&quot;: &quot;A TripAdvisor Member&quot;,
+        &quot;title&quot;: &quot;pleasant surprise&quot;,
+        &quot;rating&quot;: 4,
+        &quot;date&quot;: &quot;Mar 5, 2013 3:40:22 AM&quot;,
+        &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d98438-r153753004-m14131-La_Quinta_Inn_Austin_South_IH35-Austin_Texas.html#review153753004&quot;
+      },
+      {
+        &quot;summary&quot;: &quot;Stayed 2 nights at the days inn crossroads and found it to be comfortable and a very reasonably priced option for a quick trip. Staff was very helpful with transportation information.&quot;,
+        &quot;author&quot;: &quot;EllenO204&quot;,
+        &quot;title&quot;: &quot;convenient and comfortable&quot;,
+        &quot;rating&quot;: 4,
+        &quot;date&quot;: &quot;Mar 5, 2013 1:21:15 AM&quot;,
+        &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d98413-r153748342-m14131-Days_Inn_Austin_Crossroads-Austin_Texas.html#review153748342&quot;
+      }
+    ],
+    &quot;hotelCount&quot;: 191,
+    &quot;locationId&quot;: 30196,
+    &quot;thumbnailIsBlessed&quot;: true,
+    &quot;restaurantCount&quot;: 1618,
+    &quot;photo&quot;: {
+      &quot;150x150&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-l/01/26/05/7a/austin-texas.jpg&quot;,
+      &quot;250x205&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-f/01/26/05/7a/austin-texas.jpg&quot;,
+      &quot;original&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-o/01/26/05/7a/austin-texas.jpg&quot;,
+      &quot;550x450&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-s/01/26/05/7a/austin-texas.jpg&quot;
+    },
+    &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/01/26/05/7a/austin-texas.jpg&quot;,
+    &quot;attractionCount&quot;: 291,
+    &quot;numReviews&quot;: 57,
+    &quot;description&quot;: &quot;Perhaps you’ve heard of a little shindig called SXSW? This festival, held annually in March, helped cement Austin’s reputation as a great place to catch live music. What’s more, no matter what your taste, you’ll probably find it here—bands from all genres play Austin’s many clubs and bars.&quot;,
+    &quot;name&quot;: &quot;Austin&quot;,
+    &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+    &quot;ancestors&quot;: [
+      {
+        &quot;abbrv&quot;: &quot;TX&quot;,
+        &quot;level&quot;: &quot;State&quot;,
+        &quot;name&quot;: &quot;Texas&quot;,
+        &quot;locationId&quot;: 28964
+      },
+      {
+        &quot;level&quot;: &quot;Country&quot;,
+        &quot;name&quot;: &quot;United States&quot;,
+        &quot;locationId&quot;: 191
+      }
+    ],
+    &quot;longitude&quot;: -97.74306,
+    &quot;latitude&quot;: 30.26715,
+    &quot;accommodationCount&quot;: 247
+  },
+  &quot;metadata&quot;: {
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;version&quot;: &quot;1.1&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+By adding the /hotels connection, you can get all hotels listed in Austin.  This works for /attractions and /restaurants as well.
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="c"># hotels in Austin</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/location/</span><span class="si">%d</span><span class="s">/hotels?key=</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">location_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: [
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d114938-Reviews-m14131-Four_Seasons_Hotel_Austin-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-478-4500&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://www.fourseasons.com/austin/?source\u003dtaaustinblhotel&quot;,
+      &quot;locationId&quot;: 114938,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/114938?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.678131103515625,
+      &quot;numReviews&quot;: 591,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Four Seasons Hotel Austin&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.74248,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d114938-m14131-Four_Seasons_Hotel_Austin-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d114938-m14131-Four_Seasons_Hotel_Austin-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/39/73/88/four-seasons-hotel-austin.jpg&quot;,
+      &quot;price&quot;: &quot;$390 - $912&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d114938-a_area.QC__5F__mobile__5F__API-m14131-Four_Seasons_Hotel_Austin-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d114938-Reviews-m14131-Four_Seasons_Hotel_Austin-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.261658,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#1 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d2008152-Reviews-m14131-Travaasa_Austin-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 855-868-7282&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://travaasa.com/austin/&quot;,
+      &quot;locationId&quot;: 2008152,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/2008152?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.56537389755249,
+      &quot;numReviews&quot;: 212,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Travaasa Austin&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.86499,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d2008152-m14131-Travaasa_Austin-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d2008152-m14131-Travaasa_Austin-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/01/e8/20/35/travaasa-austin.jpg&quot;,
+      &quot;price&quot;: &quot;$299 - $602&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d2008152-a_area.QC__5F__mobile__5F__API-m14131-Travaasa_Austin-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d2008152-Reviews-m14131-Travaasa_Austin-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.44321,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#2 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1762662-Reviews-m14131-La_Quinta_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-568-3538&quot;,
+      &quot;ownerWebsite&quot;: &quot;www.lq.com&quot;,
+      &quot;locationId&quot;: 1762662,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1762662?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.549778938293457,
+      &quot;numReviews&quot;: 95,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;La Quinta Inn \u0026 Suites Austin/Cedar Park/Lakeline&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.79234,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1762662-m14131-La_Quinta_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1762662-m14131-La_Quinta_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/8f/03/8f035a0f73745074615e2d6c88e63bf46small.jpg&quot;,
+      &quot;price&quot;: &quot;$106 - $143&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1762662-a_area.QC__5F__mobile__5F__API-m14131-La_Quinta_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1762662-Reviews-m14131-La_Quinta_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.47589,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#3 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d111393-Reviews-m14131-Lake_Austin_Spa_Resort-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-372-7300&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;253239655;77106042;g&quot;,
+      &quot;locationId&quot;: 111393,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/111393?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 0,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.509983062744141,
+      &quot;numReviews&quot;: 116,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Lake Austin Spa Resort&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.924126,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d111393-m14131-Lake_Austin_Spa_Resort-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d111393-m14131-Lake_Austin_Spa_Resort-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/3c/23/e0/lakehouse-spa-at-lake.jpg&quot;,
+      &quot;price&quot;: &quot;$820 - $1,074&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d111393-a_area.QC__5F__mobile__5F__API-m14131-Lake_Austin_Spa_Resort-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d111393-Reviews-m14131-Lake_Austin_Spa_Resort-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.32766,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#4 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1675976-Reviews-m14131-The_Westin_Austin_at_The_Domain-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-832-4197&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://clk.atdmt.com/NYC/go/430357758/direct;at.TA_BL_WE_3232_Website_1x1;ct.A/01/&quot;,
+      &quot;locationId&quot;: 1675976,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1675976?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.49016809463501,
+      &quot;numReviews&quot;: 406,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;The Westin Austin at The Domain&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.72526,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1675976-m14131-The_Westin_Austin_at_The_Domain-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1675976-m14131-The_Westin_Austin_at_The_Domain-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/3a/e8/55/hotel-exterior.jpg&quot;,
+      &quot;price&quot;: &quot;$192 - $556&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1675976-a_area.QC__5F__mobile__5F__API-m14131-The_Westin_Austin_at_The_Domain-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1675976-Reviews-m14131-The_Westin_Austin_at_The_Domain-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.39923,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#5 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d3523356-Reviews-m14131-Hampton_Inn_Suites_Austin_The_University_Capitol-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;855-271-3622&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;255410963;79145292;n?http://www3.hilton.com/en_US/hi/doorway/index.htm?sourceCode\u003d00081209\u0026redirectURL\u003dhttp%3A%2F%2Fhamptoninn3.hilton.com%2Fen%2Fhotels%2FTexas%2FAUSUAHX%2Findex.html&quot;,
+      &quot;locationId&quot;: 3523356,
+      &quot;thumbnailIsBlessed&quot;: true,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3523356?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.454390048980713,
+      &quot;numReviews&quot;: 54,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Hampton Inn \u0026 Suites Austin @ The University/Capitol&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.74101,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d3523356-m14131-Hampton_Inn_Suites_Austin_The_University_Capitol-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d3523356-m14131-Hampton_Inn_Suites_Austin_The_University_Capitol-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/03/8e/a8/95/hampton-inn-suites-austin.jpg&quot;,
+      &quot;price&quot;: &quot;$172 - $353&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d3523356-a_area.QC__5F__mobile__5F__API-m14131-Hampton_Inn_Suites_Austin_The_University_Capitol-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d3523356-Reviews-m14131-Hampton_Inn_Suites_Austin_The_University_Capitol-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.279533,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#6 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d108980-Reviews-m14131-Hampton_Inn_Austin_Arboretum_Northwest-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;855-271-3622&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;255410960;79144975;r?http://www3.hilton.com/en_US/hi/doorway/index.htm?sourceCode\u003d00081209\u0026redirectURL\u003dhttp%3A%2F%2Fhamptoninn3.hilton.com%2Fen%2Fhotels%2FTexas%2FAUSNWHX%2Findex.html&quot;,
+      &quot;locationId&quot;: 108980,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/108980?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.443978786468506,
+      &quot;numReviews&quot;: 231,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Hampton Inn Austin - Arboretum Northwest&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.73467,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d108980-m14131-Hampton_Inn_Austin_Arboretum_Northwest-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d108980-m14131-Hampton_Inn_Austin_Arboretum_Northwest-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/9f/57/9f57afac3309463c4c3032b96c96e6a95small.jpg&quot;,
+      &quot;price&quot;: &quot;$105 - $341&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d108980-a_area.QC__5F__mobile__5F__API-m14131-Hampton_Inn_Austin_Arboretum_Northwest-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d108980-Reviews-m14131-Hampton_Inn_Austin_Arboretum_Northwest-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.39739,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#7 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1889883-Reviews-m14131-W_Austin-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-542-3600&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://clk.atdmt.com/NYC/go/430357755/direct;at.TA_BL_WH_3224_Website_1x1;ct.A/01/&quot;,
+      &quot;locationId&quot;: 1889883,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1889883?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.401449203491211,
+      &quot;numReviews&quot;: 420,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;W Austin&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.74657,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1889883-m14131-W_Austin-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1889883-m14131-W_Austin-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/01/f8/0e/29/w-austin.jpg&quot;,
+      &quot;price&quot;: &quot;$295 - $805&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1889883-a_area.QC__5F__mobile__5F__API-m14131-W_Austin-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1889883-Reviews-m14131-W_Austin-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.265469,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#8 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d622833-Reviews-m14131-Courtyard_by_Marriott_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 888-236-2427&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;242237991;70215307;d?http://www.marriott.com/AUSAA?scid\u003db661a3c4-9c47-48c8-9e13-75b66089dd79\u0026pid\u003dcorptbta&quot;,
+      &quot;locationId&quot;: 622833,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/622833?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 3,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.381393909454346,
+      &quot;numReviews&quot;: 151,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Courtyard by Marriott Austin Airport&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.68795,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d622833-m14131-Courtyard_by_Marriott_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d622833-m14131-Courtyard_by_Marriott_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/8d/11/8d1147866db535c10167332e756c19249small.jpg&quot;,
+      &quot;price&quot;: &quot;$111 - $334&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d622833-a_area.QC__5F__mobile__5F__API-m14131-Courtyard_by_Marriott_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d622833-Reviews-m14131-Courtyard_by_Marriott_Austin_Airport-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.2183,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#9 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1023853-Reviews-m14131-Super_8_183_Airport-Austin_Texas.html&quot;,
+      &quot;locationId&quot;: 1023853,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1023853?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.354433059692383,
+      &quot;numReviews&quot;: 240,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Super 8 - 183 Airport&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.66441,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1023853-m14131-Super_8_183_Airport-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1023853-m14131-Super_8_183_Airport-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/16/85/1685d09bd6e18816225d9a1f850a75714small.jpg&quot;,
+      &quot;price&quot;: &quot;$78 - $298&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1023853-a_area.QC__5F__mobile__5F__API-m14131-Super_8_183_Airport-Austin_Texas.html&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1023853-Reviews-m14131-Super_8_183_Airport-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.292929,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#10 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d557377-Reviews-m14131-Super_8_Austin_Airport_South-Austin_Texas.html&quot;,
+      &quot;locationId&quot;: 557377,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/557377?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.346696853637695,
+      &quot;numReviews&quot;: 310,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Super 8 Austin Airport, South&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.71353,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d557377-m14131-Super_8_Austin_Airport_South-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d557377-m14131-Super_8_Austin_Airport_South-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/9c/87/9c879578f3bfedd0bbcf916cb1d621a34small.jpg&quot;,
+      &quot;price&quot;: &quot;$92 - $576&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d557377-a_area.QC__5F__mobile__5F__API-m14131-Super_8_Austin_Airport_South-Austin_Texas.html&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d557377-Reviews-m14131-Super_8_Austin_Airport_South-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.21089,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#11 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d615166-Reviews-m14131-Hampton_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;855-271-3622&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;255410954;79144983;t?http://www3.hilton.com/en_US/hi/doorway/index.htm?sourceCode\u003d00081209\u0026redirectURL\u003dhttp%3A%2F%2Fhamptoninn3.hilton.com%2Fen%2Fhotels%2FTexas%2FAUSCCHX%2Findex.html&quot;,
+      &quot;locationId&quot;: 615166,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/615166?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 0,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.292839050292969,
+      &quot;numReviews&quot;: 77,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Hampton Inn \u0026 Suites Austin Cedar Park - Lakeline&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.80332,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d615166-m14131-Hampton_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d615166-m14131-Hampton_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/4d/3c/4d3c24ffdc473b9947bad9cc535047614small.jpg&quot;,
+      &quot;price&quot;: &quot;$127 - $184&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d615166-a_area.QC__5F__mobile__5F__API-m14131-Hampton_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d615166-Reviews-m14131-Hampton_Inn_Suites_Austin_Cedar_Park_Lakeline-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.4633,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#12 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d108981-Reviews-m14131-Embassy_Suites_Hotel_Austin_Arboretum-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;855-277-4940&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;255420191;79147481;j?http://www3.hilton.com/en_US/hi/doorway/index.htm?sourceCode\u003d00081209\u0026redirectURL\u003dhttp%3A%2F%2Fembassysuites3.hilton.com%2Fen%2Fhotels%2FTexas%2FAUSESES%2Findex.html&quot;,
+      &quot;locationId&quot;: 108981,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/108981?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 3,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.244449138641357,
+      &quot;numReviews&quot;: 169,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Embassy Suites Hotel Austin - Arboretum&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.7384,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d108981-m14131-Embassy_Suites_Hotel_Austin_Arboretum-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d108981-m14131-Embassy_Suites_Hotel_Austin_Arboretum-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/46/bc/9a/welcome-to-embassy-suites.jpg&quot;,
+      &quot;price&quot;: &quot;$155 - $245&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d108981-a_area.QC__5F__mobile__5F__API-m14131-Embassy_Suites_Hotel_Austin_Arboretum-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d108981-Reviews-m14131-Embassy_Suites_Hotel_Austin_Arboretum-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.3852,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#13 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1751886-Reviews-m14131-Microtel_Inn_Suites_by_Wyndham_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://www.microtelinn.com/hotels/hotel-overview?hotel_id\u003d32007\u0026cid\u003dwhg_mic_ta_bizlist_propsite\u0026wid\u003dps:addppc_bl_propsite\u0026reg\u003dappc-_-ta_mic-_-mic-_-bizlist&quot;,
+      &quot;locationId&quot;: 1751886,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1751886?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.236455917358398,
+      &quot;numReviews&quot;: 136,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Microtel Inn \u0026 Suites by Wyndham Austin Airport&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.69667,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1751886-m14131-Microtel_Inn_Suites_by_Wyndham_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1751886-m14131-Microtel_Inn_Suites_by_Wyndham_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/51/1e/511e92beafe0b945ef5cf1d8353f05c04small.jpg&quot;,
+      &quot;price&quot;: &quot;$76 - $120&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1751886-a_area.QC__5F__mobile__5F__API-m14131-Microtel_Inn_Suites_by_Wyndham_Austin_Airport-Austin_Texas.html&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1751886-Reviews-m14131-Microtel_Inn_Suites_by_Wyndham_Austin_Airport-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.2112,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#14 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d3263489-Reviews-m14131-Sleep_Inn_Suites-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 512-828-7272&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://sleepinnsuitesaustin.com/&quot;,
+      &quot;locationId&quot;: 3263489,
+      &quot;thumbnailIsBlessed&quot;: true,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3263489?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.199507236480713,
+      &quot;numReviews&quot;: 22,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Sleep Inn \u0026 Suites&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.67265,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d3263489-m14131-Sleep_Inn_Suites-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d3263489-m14131-Sleep_Inn_Suites-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/98/38/b8/filename-king-room-jpg.jpg&quot;,
+      &quot;price&quot;: &quot;$88 - $115&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d3263489-a_area.QC__5F__mobile__5F__API-m14131-Sleep_Inn_Suites-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d3263489-Reviews-m14131-Sleep_Inn_Suites-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.429302,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#15 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d252820-Reviews-m14131-Hilton_Garden_Inn_Austin_Northwest_Arboretum-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;855-277-5057&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;255418025;79146968;v?http://www3.hilton.com/en_US/hi/doorway/index.htm?sourceCode\u003d00081209\u0026redirectURL\u003dhttp%3A%2F%2Fhiltongardeninn3.hilton.com%2Fen%2Fhotels%2FTexas%2FAUSAAGI%2Findex.html&quot;,
+      &quot;locationId&quot;: 252820,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/252820?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 3,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.19625186920166,
+      &quot;numReviews&quot;: 73,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Hilton Garden Inn Austin Northwest / Arboretum&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.74422,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d252820-m14131-Hilton_Garden_Inn_Austin_Northwest_Arboretum-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d252820-m14131-Hilton_Garden_Inn_Austin_Northwest_Arboretum-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/b3/d5/b3d5b6c6829795c1ab7687b18d8a5c644small.jpg&quot;,
+      &quot;price&quot;: &quot;$96 - $272&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d252820-a_area.QC__5F__mobile__5F__API-m14131-Hilton_Garden_Inn_Austin_Northwest_Arboretum-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d252820-Reviews-m14131-Hilton_Garden_Inn_Austin_Northwest_Arboretum-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.41528,
+      &quot;rating&quot;: 4.0,
+      &quot;ranking&quot;: &quot;#16 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1189576-Reviews-m14131-AT_T_Executive_Education_and_Conference_Center-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;512-404-1900&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;261423114;85618398;l?http://www.meetattexas.com&quot;,
+      &quot;locationId&quot;: 1189576,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1189576?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.1753129959106445,
+      &quot;numReviews&quot;: 194,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;AT\u0026T Executive Education and Conference Center&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.72888,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d1189576-m14131-AT_T_Executive_Education_and_Conference_Center-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d1189576-m14131-AT_T_Executive_Education_and_Conference_Center-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/ad/3c/ad3c1fa4f86c47c82c504c81aa54381a2small.jpg&quot;,
+      &quot;price&quot;: &quot;$226 - $475&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d1189576-a_area.QC__5F__mobile__5F__API-m14131-AT_T_Executive_Education_and_Conference_Center-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d1189576-Reviews-m14131-AT_T_Executive_Education_and_Conference_Center-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.28131,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#17 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d98474-Reviews-m14131-The_Driskill-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 800-252-9367&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://www.clicklinktracker.com/c/?id\u003d4319&quot;,
+      &quot;locationId&quot;: 98474,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/98474?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 4,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.121493816375732,
+      &quot;numReviews&quot;: 510,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;The Driskill&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.74131,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d98474-m14131-The_Driskill-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d98474-m14131-The_Driskill-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://www.venere.com/img/hotel/8/9/9/7/247998/247998.jpg&quot;,
+      &quot;price&quot;: &quot;$273 - $581&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d98474-a_area.QC__5F__mobile__5F__API-m14131-The_Driskill-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d98474-Reviews-m14131-The_Driskill-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.26821,
+      &quot;rating&quot;: 4.0,
+      &quot;ranking&quot;: &quot;#18 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d604457-Reviews-m14131-Residence_Inn_Austin_Downtown_Convention_Center-Austin_Texas.html&quot;,
+      &quot;phone&quot;: &quot;+1 888-236-2427&quot;,
+      &quot;ownerWebsite&quot;: &quot;http://ad.doubleclick.net/clk;242237991;70215307;d?http://www.marriott.com/AUSRD?scid\u003db661a3c4-9c47-48c8-9e13-75b66089dd79\u0026pid\u003dcorptbta&quot;,
+      &quot;locationId&quot;: 604457,
+      &quot;thumbnailIsBlessed&quot;: false,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/604457?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 3,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.1105499267578125,
+      &quot;numReviews&quot;: 142,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Residence Inn Austin Downtown / Convention Center&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.735695,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d604457-m14131-Residence_Inn_Austin_Downtown_Convention_Center-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d604457-m14131-Residence_Inn_Austin_Downtown_Convention_Center-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/ProviderThumbnails/dirs/50/30/5030c28c0b1bf6ae7650f95130a8e7ff2small.jpg&quot;,
+      &quot;price&quot;: &quot;$261 - $898&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d604457-a_area.QC__5F__mobile__5F__API-m14131-Residence_Inn_Austin_Downtown_Convention_Center-Austin_Texas.html&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d604457-Reviews-m14131-Residence_Inn_Austin_Downtown_Convention_Center-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.26537,
+      &quot;rating&quot;: 4.0,
+      &quot;ranking&quot;: &quot;#19 of 191 hotels in Austin&quot;
+    },
+    {
+      &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d247103-Reviews-m14131-Extended_Stay_America_Austin_Southwest-Austin_Texas.html&quot;,
+      &quot;locationId&quot;: 247103,
+      &quot;thumbnailIsBlessed&quot;: true,
+      &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/247103?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+      &quot;hotelClass&quot;: 2,
+      &quot;categoryTranslated&quot;: &quot;hotel&quot;,
+      &quot;rankingCategory&quot;: &quot;hotel&quot;,
+      &quot;rawRanking&quot;: 4.067073822021484,
+      &quot;numReviews&quot;: 10,
+      &quot;subcategoryKey&quot;: &quot;hotel&quot;,
+      &quot;name&quot;: &quot;Extended Stay America - Austin - Southwest&quot;,
+      &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+      &quot;longitude&quot;: -97.82624,
+      &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d247103-m14131-Extended_Stay_America_Austin_Southwest-Austin_Texas.html&quot;,
+      &quot;category&quot;: &quot;hotel&quot;,
+      &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d247103-m14131-Extended_Stay_America_Austin_Southwest-Austin_Texas.html&quot;,
+      &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/f1/75/78/exterior.jpg&quot;,
+      &quot;price&quot;: &quot;$94 - $235&quot;,
+      &quot;subcategory&quot;: &quot;Hotel&quot;,
+      &quot;checkRatesURL&quot;: &quot;http://www.tripadvisor.com/MobileCheckRates-g30196-d247103-a_area.QC__5F__mobile__5F__API-m14131-Extended_Stay_America_Austin_Southwest-Austin_Texas.html&quot;,
+      &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Hotel_Review-g30196-d247103-Reviews-m14131-Extended_Stay_America_Austin_Southwest-Austin_Texas.html#travelerReviews&quot;,
+      &quot;latitude&quot;: 30.23693,
+      &quot;rating&quot;: 4.5,
+      &quot;ranking&quot;: &quot;#20 of 191 hotels in Austin&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;total&quot;: 191,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;version&quot;: &quot;1.1&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+With each call, you will see some metadata attached, letting you know how many total results there are.  You can then use limit and offset to page your way through all the results if you like.
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">json_obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">json_obj</span><span class="p">[</span><span class="s">&#39;metadata&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{u&apos;status&apos;: u&apos;OK&apos;, u&apos;total&apos;: 191, u&apos;version&apos;: u&apos;1.1&apos;}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/location/</span><span class="si">%d</span><span class="s">/attractions?key=</span><span class="si">%s</span><span class="s">&amp;limit=10&amp;offset=20&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">location_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">json_obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">attraction</span> <span class="o">=</span> <span class="n">json_obj</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">attraction</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+    &quot;rankingCategory&quot;: &quot;attraction&quot;, 
+    &quot;subcategory&quot;: &quot;cultural&quot;, 
+    &quot;rating&quot;: 4.5, 
+    &quot;numReviews&quot;: 131, 
+    &quot;category&quot;: &quot;attraction&quot;, 
+    &quot;rawRanking&quot;: 4.24937105178833, 
+    &quot;attractionTypes&quot;: &quot;Educational Sites&quot;, 
+    &quot;categoryTranslated&quot;: &quot;attraction&quot;, 
+    &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d144288-Reviews-m14131-University_of_Texas_at_Austin-Austin_Texas.html&quot;, 
+    &quot;latitude&quot;: 30.26427, 
+    &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/00/1c/a0/7c/long-view-of-campus.jpg&quot;, 
+    &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d144288-m14131-University_of_Texas_at_Austin-Austin_Texas.html&quot;, 
+    &quot;ranking&quot;: &quot;#21 of 213 attractions in Austin&quot;, 
+    &quot;phone&quot;: &quot;512/471-3434&quot;, 
+    &quot;locationId&quot;: 144288, 
+    &quot;locationString&quot;: &quot;Austin, Texas&quot;, 
+    &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/144288?key=90880b62-09e9-4c2a-9cea-27a1bc669261&quot;, 
+    &quot;name&quot;: &quot;University of Texas at Austin&quot;, 
+    &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d144288-m14131-University_of_Texas_at_Austin-Austin_Texas.html&quot;, 
+    &quot;subcategoryKey&quot;: &quot;cultural&quot;, 
+    &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d144288-Reviews-m14131-University_of_Texas_at_Austin-Austin_Texas.html#travelerReviews&quot;, 
+    &quot;longitude&quot;: -97.74788, 
+    &quot;thumbnailIsBlessed&quot;: true
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="reviews"></a></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+  Reviews
+</h2>
+</div>
+You can pull the locationId for a known location to find the reviews
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">attraction_id</span> <span class="o">=</span> <span class="n">attraction</span><span class="p">[</span><span class="s">&#39;locationId&#39;</span><span class="p">]</span>
+
+<span class="c"># This time we use an attraction_id as the location_id.  Ids are unique across hotels, restaurants, attractions, and geos.</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/location/</span><span class="si">%d</span><span class="s">/reviews?key=</span><span class="si">%s</span><span class="s">&amp;sort=date&amp;order=desc&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">attraction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: 152828341,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 22, 2013 10:15:14 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;A contender&quot;,
+      &quot;username&quot;: &quot;EjwEsq&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152828341-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152828341&quot;
+    },
+    {
+      &quot;id&quot;: 152753481,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 21, 2013 11:26:42 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Longhorn for Life&quot;,
+      &quot;username&quot;: &quot;exaslonghorn31&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152753481-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152753481&quot;
+    },
+    {
+      &quot;id&quot;: 152666952,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 20, 2013 10:02:48 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;UTA Campus Visit&quot;,
+      &quot;username&quot;: &quot;Travis A&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152666952-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152666952&quot;
+    },
+    {
+      &quot;id&quot;: 152441338,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 18, 2013 11:17:29 AM&quot;,
+      &quot;rating&quot;: 3,
+      &quot;title&quot;: &quot;Beautiful Architecture&quot;,
+      &quot;username&quot;: &quot;27sam27&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152441338-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152441338&quot;
+    },
+    {
+      &quot;id&quot;: 152192730,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 15, 2013 12:26:03 PM&quot;,
+      &quot;rating&quot;: 4,
+      &quot;title&quot;: &quot;Make sure you include this on your visit&quot;,
+      &quot;username&quot;: &quot;2dtrav&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152192730-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152192730&quot;
+    },
+    {
+      &quot;id&quot;: 149995238,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 18, 2013 10:29:05 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Beautiful campus, incredible football stadium&quot;,
+      &quot;username&quot;: &quot;Cory L&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149995238-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149995238&quot;
+    },
+    {
+      &quot;id&quot;: 149611779,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 13, 2013 7:20:07 PM&quot;,
+      &quot;rating&quot;: 1,
+      &quot;title&quot;: &quot;Not enough parking&quot;,
+      &quot;username&quot;: &quot;garnett h&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149611779-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149611779&quot;
+    },
+    {
+      &quot;id&quot;: 149350636,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 10, 2013 11:48:40 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Tour of the Burnt Orange&quot;,
+      &quot;username&quot;: &quot;Patrice C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149350636-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149350636&quot;
+    },
+    {
+      &quot;id&quot;: 148322095,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 29, 2012 9:23:35 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Nice&quot;,
+      &quot;username&quot;: &quot;FanMQ&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r148322095-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review148322095&quot;
+    },
+    {
+      &quot;id&quot;: 148037183,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 25, 2012 1:30:46 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Campus visit and tour for the College-bound teens!&quot;,
+      &quot;username&quot;: &quot;Dawn C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r148037183-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review148037183&quot;
+    },
+    {
+      &quot;id&quot;: 147737910,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 19, 2012 12:35:54 PM&quot;,
+      &quot;rating&quot;: 3,
+      &quot;title&quot;: &quot;No difference to other universities&quot;,
+      &quot;username&quot;: &quot;aussie-matthew&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147737910-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147737910&quot;
+    },
+    {
+      &quot;id&quot;: 147502248,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 15, 2012 2:08:04 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Gotta go to a UT football game!&quot;,
+      &quot;username&quot;: &quot;toothbetold&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147502248-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147502248&quot;
+    },
+    {
+      &quot;id&quot;: 147457656,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 14, 2012 3:52:46 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Visit to UT Campus&quot;,
+      &quot;username&quot;: &quot;Mike2012_12&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147457656-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147457656&quot;
+    },
+    {
+      &quot;id&quot;: 147219650,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 11, 2012 12:24:00 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Hook Em&quot;,
+      &quot;username&quot;: &quot;Rod8200&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147219650-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147219650&quot;
+    },
+    {
+      &quot;id&quot;: 147152435,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 10, 2012 5:01:48 PM&quot;,
+      &quot;rating&quot;: 4,
+      &quot;title&quot;: &quot;Great School. Hook em&quot;,
+      &quot;username&quot;: &quot;mrbrentharris&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147152435-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147152435&quot;
+    },
+    {
+      &quot;id&quot;: 146139226,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 25, 2012 10:02:12 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Don\u0027t Miss This Beautiful Campus&quot;,
+      &quot;username&quot;: &quot;Jim C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r146139226-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review146139226&quot;
+    },
+    {
+      &quot;id&quot;: 145696076,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 18, 2012 8:57:53 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Almost as beautiful as the University of Florida&quot;,
+      &quot;username&quot;: &quot;Amilcar F&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r145696076-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review145696076&quot;
+    },
+    {
+      &quot;id&quot;: 144697168,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 5, 2012 9:02:31 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Hook Em\u0027&quot;,
+      &quot;username&quot;: &quot;UptonChicky&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144697168-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144697168&quot;
+    },
+    {
+      &quot;id&quot;: 144591925,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 5, 2012 11:21:38 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;University is Center of Austin&quot;,
+      &quot;username&quot;: &quot;pingpaul&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144591925-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144591925&quot;
+    },
+    {
+      &quot;id&quot;: 144151659,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Oct 31, 2012 11:22:24 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;title&quot;: &quot;Plenty to do!&quot;,
+      &quot;username&quot;: &quot;luvplayacar&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144151659-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144151659&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;total&quot;: 131,
+    &quot;version&quot;: &quot;1.1&quot;,
+    &quot;status&quot;: &quot;OK&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+To get the full text, specify textMode=full (none and snippet also work)
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/location/</span><span class="si">%d</span><span class="s">/reviews?key=</span><span class="si">%s</span><span class="s">&amp;sort=date&amp;order=desc&amp;textMode=full&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">attraction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: 152828341,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 22, 2013 10:15:14 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;My son and I flew down from Boston to tour UT...it is high on his list, and the city and tour did not disappoint.  The campus is large, and a little hilly, so be forewarned that it will be a lot of walking.  At the end, make sure to visit the clocktower, and go to the Co-op on Gaudalupe Street for any Longhorn merchandise you might need.&quot;,
+      &quot;title&quot;: &quot;A contender&quot;,
+      &quot;username&quot;: &quot;EjwEsq&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152828341-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152828341&quot;
+    },
+    {
+      &quot;id&quot;: 152753481,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 21, 2013 11:26:42 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;I love the University of Texas. I grew up visiting the campus with my father who attended UT for undergrad and law school. I attended football games growing up. I then attended and graduated from graduate school at UT. I am a longhorn for life and LOVE the people and the education I got at UT. Hook em!&quot;,
+      &quot;title&quot;: &quot;Longhorn for Life&quot;,
+      &quot;username&quot;: &quot;exaslonghorn31&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152753481-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152753481&quot;
+    },
+    {
+      &quot;id&quot;: 152666952,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 20, 2013 10:02:48 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Beautiful campus.  I had no idea UTA was either this large or this beautiful.  My colleague and I spent an hour wandering the central campus, administration building and bookstore, and it was an hour well-spent.  Signs indicated that campus and clock tower tours are available during regular business hours, but we were too late.  If you have time, I would highly recommend one.  Information is available in the administration building (under the landmark clock tower).&quot;,
+      &quot;title&quot;: &quot;UTA Campus Visit&quot;,
+      &quot;username&quot;: &quot;Travis A&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152666952-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152666952&quot;
+    },
+    {
+      &quot;id&quot;: 152441338,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 18, 2013 11:17:29 AM&quot;,
+      &quot;rating&quot;: 3,
+      &quot;text&quot;: &quot;Beautiful campus, with some real character.  The older buildings have a lot of history, and there are some lovely courtyards in which to sit.  Seeing the football stadium was a major adrenaline rush.  If you can\u0027t find your way, the students are generally very helpful.  &quot;,
+      &quot;title&quot;: &quot;Beautiful Architecture&quot;,
+      &quot;username&quot;: &quot;27sam27&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152441338-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152441338&quot;
+    },
+    {
+      &quot;id&quot;: 152192730,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Feb 15, 2013 12:26:03 PM&quot;,
+      &quot;rating&quot;: 4,
+      &quot;text&quot;: &quot;Impressive campus.  If you\u0027re visiting Austin this is a great place to stay (AT\u0026T Conference Center)  because it centrally located in the city so you can walk everywhere from the AT\u0026T.  The hotel itself offers one of the best restaurants in the city - Carillon.  From there you can walk to the LBJ Library, The Blanton Art Museum, The Texas History Museum, The capital, and many many restaurants down town. The campus itself is beautiful and offers lots of activities.\n&quot;,
+      &quot;title&quot;: &quot;Make sure you include this on your visit&quot;,
+      &quot;username&quot;: &quot;2dtrav&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r152192730-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review152192730&quot;
+    },
+    {
+      &quot;id&quot;: 149995238,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 18, 2013 10:29:05 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;I went for a midday football game and had my mind blown.  The stadium was enormous and the fans in Austin are some of the best.  I was just surrounded by college students.  There were families and generations of alumni. \n\nIf you are in Austin you gotta check out the University&quot;,
+      &quot;title&quot;: &quot;Beautiful campus, incredible football stadium&quot;,
+      &quot;username&quot;: &quot;Cory L&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149995238-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149995238&quot;
+    },
+    {
+      &quot;id&quot;: 149611779,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 13, 2013 7:20:07 PM&quot;,
+      &quot;rating&quot;: 1,
+      &quot;text&quot;: &quot;Besides being located adjacent to I-35 which comes to a stand still during rush hour, it is located in the heart of the city and therefore lacks parking for large events, like home football games.  This is especially true if the city is also holding another major sports attraction such and the up coming 2nd Grand Prix.  No rooms available withing 60 miles due to the 120,000+ Grand Prix fans plus another 90K football fans.&quot;,
+      &quot;title&quot;: &quot;Not enough parking&quot;,
+      &quot;username&quot;: &quot;garnett h&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149611779-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149611779&quot;
+    },
+    {
+      &quot;id&quot;: 149350636,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Jan 10, 2013 11:48:40 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;This was a great day...walking and talking...seeing the campus on foot. \&quot;The Drum\&quot;, The Stadium....the dorms, the Halls of Learning and most of all The Library...I enjoyed reading, microfiching and researching....a great place for learning, studying and growing.&quot;,
+      &quot;title&quot;: &quot;Tour of the Burnt Orange&quot;,
+      &quot;username&quot;: &quot;Patrice C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r149350636-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review149350636&quot;
+    },
+    {
+      &quot;id&quot;: 148322095,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 29, 2012 9:23:35 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Some amazing buildings, such as the alumni center and the weird football stadium. I don\u0027t like the UT orange, though. I mainly go for museums. Some of them are great.&quot;,
+      &quot;title&quot;: &quot;Nice&quot;,
+      &quot;username&quot;: &quot;FanMQ&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r148322095-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review148322095&quot;
+    },
+    {
+      &quot;id&quot;: 148037183,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 25, 2012 1:30:46 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Austin is a great town!  It\u0027s beautiful and full of history! It\u0027s a very large campus.  Everyone is friendly and helpful.  Wear good walking shoes since it\u0027s a hilly place.  Bring water too...you will get a workout! LOL I love Austin! Keep Austin Weird!&quot;,
+      &quot;title&quot;: &quot;Campus visit and tour for the College-bound teens!&quot;,
+      &quot;username&quot;: &quot;Dawn C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r148037183-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review148037183&quot;
+    },
+    {
+      &quot;id&quot;: 147737910,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 19, 2012 12:35:54 PM&quot;,
+      &quot;rating&quot;: 3,
+      &quot;text&quot;: &quot;Hence the average review. If you\u0027ve seen other universities this one isn\u0027t going to blow you away at all. &quot;,
+      &quot;title&quot;: &quot;No difference to other universities&quot;,
+      &quot;username&quot;: &quot;aussie-matthew&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147737910-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147737910&quot;
+    },
+    {
+      &quot;id&quot;: 147502248,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 15, 2012 2:08:04 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;To get a taste of what Texas is all about you have to see a UT game.  It isn\u0027t just the game, its the amazing tailgating that takes place prior to the game.  Texans know how to enjoy football!!&quot;,
+      &quot;title&quot;: &quot;Gotta go to a UT football game!&quot;,
+      &quot;username&quot;: &quot;toothbetold&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147502248-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147502248&quot;
+    },
+    {
+      &quot;id&quot;: 147457656,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 14, 2012 3:52:46 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;My family spent 4 days in Texas to attend Football game UT vs WV. We had the chance to tour the Campus driving and walking. The Students and others noticed our Gold and Blue colors and were very quick to welcome us to UT and Austin. They were \&quot;First Class\&quot;.&quot;,
+      &quot;title&quot;: &quot;Visit to UT Campus&quot;,
+      &quot;username&quot;: &quot;Mike2012_12&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147457656-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147457656&quot;
+    },
+    {
+      &quot;id&quot;: 147219650,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 11, 2012 12:24:00 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Centrally located in town surrounded by restaurants and shopping. Beautiful campus with throngs of young minds evreywhere. &quot;,
+      &quot;title&quot;: &quot;Hook Em&quot;,
+      &quot;username&quot;: &quot;Rod8200&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147219650-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147219650&quot;
+    },
+    {
+      &quot;id&quot;: 147152435,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Dec 10, 2012 5:01:48 PM&quot;,
+      &quot;rating&quot;: 4,
+      &quot;text&quot;: &quot;Very nice university. Great education and sports program. Took a summer class here. Although it was expensive, I learned a lot.&quot;,
+      &quot;title&quot;: &quot;Great School. Hook em&quot;,
+      &quot;username&quot;: &quot;mrbrentharris&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r147152435-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review147152435&quot;
+    },
+    {
+      &quot;id&quot;: 146139226,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 25, 2012 10:02:12 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;I assume Texas oil money flows into this school. If you are in Austin, take time to walk one of the prettiest campuses I\u0027ve seen. The building architecture and landscaping are so impressive. The grounds are clean and well maintained. One loses sight of this University being situated in a city. Lucky students.&quot;,
+      &quot;title&quot;: &quot;Don\u0027t Miss This Beautiful Campus&quot;,
+      &quot;username&quot;: &quot;Jim C&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r146139226-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review146139226&quot;
+    },
+    {
+      &quot;id&quot;: 145696076,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 18, 2012 8:57:53 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Loved the atmosfere and the people at the university, extremly friendly and helpfull with the tourists.&quot;,
+      &quot;title&quot;: &quot;Almost as beautiful as the University of Florida&quot;,
+      &quot;username&quot;: &quot;Amilcar F&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r145696076-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review145696076&quot;
+    },
+    {
+      &quot;id&quot;: 144697168,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 5, 2012 9:02:31 PM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;One of the world\u0027s best public universities.  Truly international, and it becomes a city every Fall as the more than 16,000 faculty and staff, and 50,000 students converge.  &quot;,
+      &quot;title&quot;: &quot;Hook Em\u0027&quot;,
+      &quot;username&quot;: &quot;UptonChicky&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144697168-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144697168&quot;
+    },
+    {
+      &quot;id&quot;: 144591925,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Nov 5, 2012 11:21:38 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;The UT Campus is sometimes called the 40 acres, which is the original land grant for the college. Bring your walking shoes. Sights include the fountain, the  Blanton Museum, and the Clock Tower.&quot;,
+      &quot;title&quot;: &quot;University is Center of Austin&quot;,
+      &quot;username&quot;: &quot;pingpaul&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144591925-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144591925&quot;
+    },
+    {
+      &quot;id&quot;: 144151659,
+      &quot;lang&quot;: &quot;en&quot;,
+      &quot;locationId&quot;: 144288,
+      &quot;publishedDate&quot;: &quot;Oct 31, 2012 11:22:24 AM&quot;,
+      &quot;rating&quot;: 5,
+      &quot;text&quot;: &quot;Not sure where to start there is so much to do here!\nSummer time the telescope is open to the public and its a treat just to jimmy jog your way along the corridors to get to the vestibule and neat to climb up the ladder to take a look at the planets.\nThe Underground offers glow in the dark bowling,billards, and air hockey. The Union has plenty of places to eat - many name brand fast food places such as Chickfila and Taco Bell. Grab a meal and sit outside. The Tower is open for tours, check the website for hours. Shop at the Co-op and show your school spirit! Or simply bring a football and play toss in front of the tower or on one of the expansive lawns. Never a dull moment!&quot;,
+      &quot;title&quot;: &quot;Plenty to do!&quot;,
+      &quot;username&quot;: &quot;luvplayacar&quot;,
+      &quot;url&quot;: &quot;http://www.tripadvisor.com/ShowUserReviews-g30196-d144288-r144151659-m14131-University_of_Texas_at_Austin-Austin_Texas.html#review144151659&quot;
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;total&quot;: 131,
+    &quot;version&quot;: &quot;1.1&quot;,
+    &quot;status&quot;: &quot;OK&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="nearby"></a></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+  Nearby
+</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also search for locations using a known lat/lon pair. This is useful if you are looking for places nearby. For this we use /map instead of /location.</p>
+
+<p>For example, here are the 10 closest restaurants to our location</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">lat</span> <span class="o">=</span> <span class="mf">30.26532</span>
+<span class="n">lng</span> <span class="o">=</span> <span class="o">-</span><span class="mf">97.73852</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/map/</span><span class="si">%f</span><span class="s">,</span><span class="si">%f</span><span class="s">/restaurants?key=</span><span class="si">%s</span><span class="s">&amp;limit=10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">nearby_restaurants</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">restaurant</span> <span class="ow">in</span> <span class="n">nearby_restaurants</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> is </span><span class="si">%s</span><span class="s"> mi away</span><span class="se">\n\t</span><span class="s">rating: </span><span class="si">%s</span><span class="s">, reviews: </span><span class="si">%s</span><span class="se">\n\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;distance&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;rating&#39;</span><span class="p">),</span> <span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;numReviews&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cuisine&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>Liberty Tavern is .03 mi away
+	rating: 3.5, reviews: 25
+	American
+
+Chez Nous is .05 mi away
+	rating: 4.5, reviews: 107
+	French, Bistro
+
+Carmelo&apos;s Italian Restaurant is .06 mi away
+	rating: 4.0, reviews: 67
+	American, Italian, Seafood
+
+Downtown Burger is .06 mi away
+	rating: 4.0, reviews: 4
+	Hamburgers
+
+Finn &amp; Porter is .08 mi away
+	rating: 4.5, reviews: 26
+	American, Sushi, Seafood, Steakhouse
+
+Rio Colorado is .08 mi away
+	rating: None, reviews: 0
+	Mexican
+
+Jakarta Jack&apos;s Cafe is .09 mi away
+	rating: None, reviews: 0
+	Coffee Shop, Diner,  Café
+
+Copper Tank Brewing Company is .09 mi away
+	rating: 3.0, reviews: 1
+	American
+
+Emilia&apos;s is .10 mi away
+	rating: None, reviews: 0
+	None
+
+Casino El Camino is .10 mi away
+	rating: 4.0, reviews: 95
+	American, Hamburgers
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+For the lazy foodies, here are the top 10 restaurants within 0.25 miles.
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">lat</span> <span class="o">=</span> <span class="mf">30.26532</span>
+<span class="n">lng</span> <span class="o">=</span> <span class="o">-</span><span class="mf">97.73852</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/map/</span><span class="si">%f</span><span class="s">,</span><span class="si">%f</span><span class="s">/restaurants?key=</span><span class="si">%s</span><span class="s">&amp;sort=popularity&amp;distance=</span><span class="si">%f</span><span class="s">&amp;limit=10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">nearby_restaurants</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">restaurant</span> <span class="ow">in</span> <span class="n">nearby_restaurants</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> is </span><span class="si">%s</span><span class="s"> mi away</span><span class="se">\n\t</span><span class="s">rating: </span><span class="si">%s</span><span class="s">, reviews: </span><span class="si">%s</span><span class="se">\n\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;distance&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;rating&#39;</span><span class="p">),</span> <span class="n">restaurant</span><span class="p">[</span><span class="s">&#39;numReviews&#39;</span><span class="p">],</span> <span class="n">restaurant</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cuisine&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>Moonshine - Patio Bar &amp; Grill is .11 mi away
+	rating: 4.5, reviews: 334
+	American
+
+Chez Nous is .05 mi away
+	rating: 4.5, reviews: 107
+	French, Bistro
+
+Carmelo&apos;s Italian Restaurant is .06 mi away
+	rating: 4.0, reviews: 67
+	American, Italian, Seafood
+
+Casino El Camino is .10 mi away
+	rating: 4.0, reviews: 95
+	American, Hamburgers
+
+Finn &amp; Porter is .08 mi away
+	rating: 4.5, reviews: 26
+	American, Sushi, Seafood, Steakhouse
+
+Russian House is .12 mi away
+	rating: 4.5, reviews: 7
+	Russian
+
+The Jackalope is .13 mi away
+	rating: 4.0, reviews: 24
+	None
+
+Parkside is .18 mi away
+	rating: 4.0, reviews: 61
+	None
+
+Old School Bar and Grill is .13 mi away
+	rating: 4.5, reviews: 10
+	American
+
+Backspace is .16 mi away
+	rating: 4.5, reviews: 12
+	Pizza
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+You can also add an optional "query" parameter against the location titles.  
+Here's a useful query:
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">lat</span> <span class="o">=</span> <span class="mf">30.26532</span>
+<span class="n">lng</span> <span class="o">=</span> <span class="o">-</span><span class="mf">97.73852</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/map/</span><span class="si">%f</span><span class="s">,</span><span class="si">%f</span><span class="s">/restaurants?key=</span><span class="si">%s</span><span class="s">&amp;limit=3&amp;q=bar&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">nearby_bars</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">nearby_bars</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> is </span><span class="si">%s</span><span class="s"> mi away</span><span class="se">\n\t</span><span class="s">rating: </span><span class="si">%s</span><span class="s">, reviews: </span><span class="si">%s</span><span class="se">\n\t</span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bar</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="n">bar</span><span class="p">[</span><span class="s">&#39;distance&#39;</span><span class="p">],</span> <span class="n">bar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;rating&#39;</span><span class="p">),</span> <span class="n">bar</span><span class="p">[</span><span class="s">&#39;numReviews&#39;</span><span class="p">],</span> <span class="n">bar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;cuisine&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>Moonshine - Patio Bar &amp; Grill is .11 mi away
+	rating: 4.5, reviews: 333
+	American
+
+Champions Sports Bar &amp; Restaurant is .11 mi away
+	rating: 3.5, reviews: 37
+	American
+
+Old School Bar and Grill is .13 mi away
+	rating: 4.5, reviews: 10
+	American
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="search"></a></p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>
+  Search
+</h2>
+</div>
+Finally, you can search for locations by keywords.
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">q</span> <span class="o">=</span> <span class="s">&quot;museum&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/search/</span><span class="si">%s</span><span class="s">?key=</span><span class="si">%s</span><span class="s">&amp;limit=20&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: {
+    &quot;restaurant&quot;: [
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g294458-d739923-Reviews-m14131-Museum-Bucharest.html&quot;,
+        &quot;phone&quot;: &quot;021 4111928&quot;,
+        &quot;cuisine&quot;: &quot;Mediterranean&quot;,
+        &quot;locationId&quot;: 739923,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/739923?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;restaurant&quot;,
+        &quot;rankingCategory&quot;: &quot;restaurant&quot;,
+        &quot;rawRanking&quot;: 3.41444993019104,
+        &quot;numReviews&quot;: 8,
+        &quot;subcategoryKey&quot;: &quot;sit_down&quot;,
+        &quot;name&quot;: &quot;Museum&quot;,
+        &quot;locationString&quot;: &quot;Bucharest&quot;,
+        &quot;longitude&quot;: 26.074387,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g294458-d739923-m14131-Museum-Bucharest.html&quot;,
+        &quot;category&quot;: &quot;restaurant&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g294458-d739923-m14131-Museum-Bucharest.html&quot;,
+        &quot;price&quot;: &quot;$15&quot;,
+        &quot;subcategory&quot;: &quot;Sit down&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g294458-d739923-Reviews-m14131-Museum-Bucharest.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 44.432518,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#74 of 374 restaurants in Bucharest&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g194762-d2645583-Reviews-m14131-Museum-Fiuggi_Province_of_Frosinone_Lazio.html&quot;,
+        &quot;phone&quot;: &quot;340 5575283&quot;,
+        &quot;cuisine&quot;: &quot;Barbecue, Italian, Seafood, Steakhouse&quot;,
+        &quot;locationId&quot;: 2645583,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/2645583?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;restaurant&quot;,
+        &quot;rankingCategory&quot;: &quot;restaurant&quot;,
+        &quot;rawRanking&quot;: 4.118610858917236,
+        &quot;numReviews&quot;: 90,
+        &quot;subcategoryKey&quot;: &quot;sit_down&quot;,
+        &quot;name&quot;: &quot;Museum&quot;,
+        &quot;locationString&quot;: &quot;Fiuggi, Province of Frosinone, Lazio&quot;,
+        &quot;longitude&quot;: 13.213548,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g194762-d2645583-m14131-Museum-Fiuggi_Province_of_Frosinone_Lazio.html&quot;,
+        &quot;category&quot;: &quot;restaurant&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g194762-d2645583-m14131-Museum-Fiuggi_Province_of_Frosinone_Lazio.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/d3/65/a7/dettagli.jpg&quot;,
+        &quot;price&quot;: &quot;$26 - $66&quot;,
+        &quot;subcategory&quot;: &quot;Sit down&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g194762-d2645583-Reviews-m14131-Museum-Fiuggi_Province_of_Frosinone_Lazio.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 41.797134,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#2 of 25 restaurants in Fiuggi&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g187849-d2525704-Reviews-m14131-Museum-Milan_Lombardy.html&quot;,
+        &quot;phone&quot;: &quot;02 38005793&quot;,
+        &quot;cuisine&quot;: &quot;Pizza&quot;,
+        &quot;locationId&quot;: 2525704,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/2525704?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;restaurant&quot;,
+        &quot;rankingCategory&quot;: &quot;restaurant&quot;,
+        &quot;rawRanking&quot;: 1.969992995262146,
+        &quot;numReviews&quot;: 5,
+        &quot;subcategoryKey&quot;: &quot;sit_down&quot;,
+        &quot;name&quot;: &quot;Museum&quot;,
+        &quot;locationString&quot;: &quot;Milan, Lombardy&quot;,
+        &quot;longitude&quot;: 9.124327,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g187849-d2525704-m14131-Museum-Milan_Lombardy.html&quot;,
+        &quot;category&quot;: &quot;restaurant&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g187849-d2525704-m14131-Museum-Milan_Lombardy.html&quot;,
+        &quot;subcategory&quot;: &quot;Sit down&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g187849-d2525704-Reviews-m14131-Museum-Milan_Lombardy.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 45.50225,
+        &quot;rating&quot;: 2.0,
+        &quot;ranking&quot;: &quot;#2,730 of 2,840 restaurants in Milan&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g303506-d1125535-Reviews-m14131-Museum-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html&quot;,
+        &quot;phone&quot;: &quot;+55 21 25566434&quot;,
+        &quot;locationId&quot;: 1125535,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1125535?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;restaurant&quot;,
+        &quot;rankingCategory&quot;: &quot;restaurant&quot;,
+        &quot;rawRanking&quot;: 3.079308032989502,
+        &quot;numReviews&quot;: 2,
+        &quot;name&quot;: &quot;Museum&quot;,
+        &quot;locationString&quot;: &quot;Rio de Janeiro, State of Rio de Janeiro&quot;,
+        &quot;longitude&quot;: -43.17641,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g303506-d1125535-m14131-Museum-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html&quot;,
+        &quot;category&quot;: &quot;restaurant&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g303506-d1125535-m14131-Museum-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Restaurant_Review-g303506-d1125535-Reviews-m14131-Museum-Rio_de_Janeiro_State_of_Rio_de_Janeiro.html#travelerReviews&quot;,
+        &quot;latitude&quot;: -22.92595,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#420 of 841 restaurants in Rio de Janeiro&quot;
+      }
+    ],
+    &quot;attraction&quot;: [
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g40810-d104047-Reviews-m14131-Lumberman_s_Museum-Patten_Maine.html&quot;,
+        &quot;locationId&quot;: 104047,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/104047?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g40810-d104047-m14131-Lumberman_s_Museum-Patten_Maine.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g40810-d104047-m14131-Lumberman_s_Museum-Patten_Maine.html&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 3.148116111755371,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;numReviews&quot;: 3,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g40810-d104047-Reviews-m14131-Lumberman_s_Museum-Patten_Maine.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Lumberman\u0027s Museum&quot;,
+        &quot;locationString&quot;: &quot;Patten, Maine&quot;,
+        &quot;longitude&quot;: -68.44994,
+        &quot;rating&quot;: 4.5,
+        &quot;latitude&quot;: 45.99664,
+        &quot;ranking&quot;: &quot;#1 of 1 attractions in Patten&quot;,
+        &quot;attractionTypes&quot;: &quot;History Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g43661-d1818006-Reviews-m14131-Ed_s_Museum-Wykoff_Minnesota.html&quot;,
+        &quot;phone&quot;: &quot;507-352-4205&quot;,
+        &quot;locationId&quot;: 1818006,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1818006?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 2.4980239868164062,
+        &quot;numReviews&quot;: 3,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;Ed\u0027s Museum&quot;,
+        &quot;locationString&quot;: &quot;Wykoff, Minnesota&quot;,
+        &quot;longitude&quot;: -92.26812,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g43661-d1818006-m14131-Ed_s_Museum-Wykoff_Minnesota.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g43661-d1818006-m14131-Ed_s_Museum-Wykoff_Minnesota.html&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g43661-d1818006-Reviews-m14131-Ed_s_Museum-Wykoff_Minnesota.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 43.7077,
+        &quot;rating&quot;: 3.5,
+        &quot;ranking&quot;: &quot;#1 of 1 attractions in Wykoff&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g608845-d2407874-Reviews-m14131-DDR_Museum-Hohenstein_Hesse.html&quot;,
+        &quot;phone&quot;: &quot;036336/57909&quot;,
+        &quot;locationId&quot;: 2407874,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/2407874?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 2.7918620109558105,
+        &quot;numReviews&quot;: 2,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;DDR-Museum&quot;,
+        &quot;locationString&quot;: &quot;Hohenstein, Hesse&quot;,
+        &quot;attractionTypes&quot;: &quot;History Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g608845-d2407874-m14131-DDR_Museum-Hohenstein_Hesse.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g608845-d2407874-m14131-DDR_Museum-Hohenstein_Hesse.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/d7/be/3d/ddr-museum.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g608845-d2407874-Reviews-m14131-DDR_Museum-Hohenstein_Hesse.html#travelerReviews&quot;,
+        &quot;rating&quot;: 4.0,
+        &quot;ranking&quot;: &quot;#1 of 1 attractions in Hohenstein&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g187337-d592840-Reviews-m14131-Dom_Museum-Frankfurt_Hesse.html&quot;,
+        &quot;phone&quot;: &quot;49 69 289229&quot;,
+        &quot;locationId&quot;: 592840,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/592840?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 2.7645480632781982,
+        &quot;numReviews&quot;: 7,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;Dom-Museum&quot;,
+        &quot;locationString&quot;: &quot;Frankfurt, Hesse&quot;,
+        &quot;longitude&quot;: 8.68478,
+        &quot;attractionTypes&quot;: &quot;History Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g187337-d592840-m14131-Dom_Museum-Frankfurt_Hesse.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g187337-d592840-m14131-Dom_Museum-Frankfurt_Hesse.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/01/5a/5e/67/dom-museum.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g187337-d592840-Reviews-m14131-Dom_Museum-Frankfurt_Hesse.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 50.11113,
+        &quot;rating&quot;: 3.5,
+        &quot;ranking&quot;: &quot;#105 of 150 attractions in Frankfurt&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g227594-d3546301-Reviews-m14131-FDF_Museum-Randers_Randers_Municipality_East_Jutland_Jutland.html&quot;,
+        &quot;phone&quot;: &quot; 86 42 24 05 &quot;,
+        &quot;locationId&quot;: 3546301,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3546301?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g227594-d3546301-m14131-FDF_Museum-Randers_Randers_Municipality_East_Jutland_Jutland.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g227594-d3546301-m14131-FDF_Museum-Randers_Randers_Municipality_East_Jutland_Jutland.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g227594-d3546301-Reviews-m14131-FDF_Museum-Randers_Randers_Municipality_East_Jutland_Jutland.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;FDF Museum&quot;,
+        &quot;locationString&quot;: &quot;Randers, Randers Municipality, East Jutland, Jutland&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g2479713-d3538290-Reviews-m14131-Fur_Museum-Fur_West_Jutland_Jutland.html&quot;,
+        &quot;locationId&quot;: 3538290,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3538290?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g2479713-d3538290-m14131-Fur_Museum-Fur_West_Jutland_Jutland.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g2479713-d3538290-m14131-Fur_Museum-Fur_West_Jutland_Jutland.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g2479713-d3538290-Reviews-m14131-Fur_Museum-Fur_West_Jutland_Jutland.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Fur Museum&quot;,
+        &quot;locationString&quot;: &quot;Fur, West Jutland, Jutland&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g1370488-d3572395-Reviews-m14131-Oro_Museum-Holbaek_Holbaek_Municipality_West_Zealand_Zealand.html&quot;,
+        &quot;phone&quot;: &quot;+45 59470225&quot;,
+        &quot;locationId&quot;: 3572395,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3572395?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g1370488-d3572395-m14131-Oro_Museum-Holbaek_Holbaek_Municipality_West_Zealand_Zealand.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g1370488-d3572395-m14131-Oro_Museum-Holbaek_Holbaek_Municipality_West_Zealand_Zealand.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g1370488-d3572395-Reviews-m14131-Oro_Museum-Holbaek_Holbaek_Municipality_West_Zealand_Zealand.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Oro Museum&quot;,
+        &quot;locationString&quot;: &quot;Holbaek, Holbaek Municipality, West Zealand, Zealand&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g181747-d2424321-Reviews-m14131-The_Museum-Kitchener_Region_of_Waterloo_Ontario.html&quot;,
+        &quot;locationId&quot;: 2424321,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/2424321?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 3.6976919174194336,
+        &quot;numReviews&quot;: 20,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;The Museum&quot;,
+        &quot;locationString&quot;: &quot;Kitchener, Region of Waterloo, Ontario&quot;,
+        &quot;longitude&quot;: -80.48927,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g181747-d2424321-m14131-The_Museum-Kitchener_Region_of_Waterloo_Ontario.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g181747-d2424321-m14131-The_Museum-Kitchener_Region_of_Waterloo_Ontario.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/a0/d4/d8/roar.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g181747-d2424321-Reviews-m14131-The_Museum-Kitchener_Region_of_Waterloo_Ontario.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 43.449924,
+        &quot;rating&quot;: 4.0,
+        &quot;ranking&quot;: &quot;#6 of 14 attractions in Kitchener&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g657251-d3546739-Reviews-m14131-Try_Museum-Dronninglund_Broenderslev_Municipality_North_Jutland_Jutland.html&quot;,
+        &quot;locationId&quot;: 3546739,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3546739?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g657251-d3546739-m14131-Try_Museum-Dronninglund_Broenderslev_Municipality_North_Jutland_Jutland.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g657251-d3546739-m14131-Try_Museum-Dronninglund_Broenderslev_Municipality_North_Jutland_Jutland.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g657251-d3546739-Reviews-m14131-Try_Museum-Dronninglund_Broenderslev_Municipality_North_Jutland_Jutland.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Try Museum&quot;,
+        &quot;locationString&quot;: &quot;Dronninglund, Broenderslev Municipality, North Jutland, Jutland&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g800487-d3202031-Reviews-m14131-Aero_Museum-Aeroskobing_Aero_Funen_and_Islands.html&quot;,
+        &quot;phone&quot;: &quot;62 52 29 50&quot;,
+        &quot;locationId&quot;: 3202031,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/3202031?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g800487-d3202031-m14131-Aero_Museum-Aeroskobing_Aero_Funen_and_Islands.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g800487-d3202031-m14131-Aero_Museum-Aeroskobing_Aero_Funen_and_Islands.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g800487-d3202031-Reviews-m14131-Aero_Museum-Aeroskobing_Aero_Funen_and_Islands.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Aero Museum&quot;,
+        &quot;locationString&quot;: &quot;Aeroskobing, Aero, Funen and Islands&quot;,
+        &quot;longitude&quot;: 10.41089,
+        &quot;latitude&quot;: 54.88781,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g226916-d1764226-Reviews-m14131-Alta_Museum-Alta_Alta_Municipality_Finnmark_Northern_Norway.html&quot;,
+        &quot;phone&quot;: &quot;+47 41 75 63 30&quot;,
+        &quot;locationId&quot;: 1764226,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1764226?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 3.5737810134887695,
+        &quot;numReviews&quot;: 13,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;Alta Museum&quot;,
+        &quot;locationString&quot;: &quot;Alta, Alta Municipality, Finnmark, Northern Norway&quot;,
+        &quot;longitude&quot;: 23.18989,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g226916-d1764226-m14131-Alta_Museum-Alta_Alta_Municipality_Finnmark_Northern_Norway.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g226916-d1764226-m14131-Alta_Museum-Alta_Alta_Municipality_Finnmark_Northern_Norway.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/d7/53/1e/alta-museum.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g226916-d1764226-Reviews-m14131-Alta_Museum-Alta_Alta_Municipality_Finnmark_Northern_Norway.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 69.94718,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#2 of 8 attractions in Alta&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g1804896-d1839643-Reviews-m14131-An_sai_Museum-Ansai_County_Shaanxi.html&quot;,
+        &quot;locationId&quot;: 1839643,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/1839643?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g1804896-d1839643-m14131-An_sai_Museum-Ansai_County_Shaanxi.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g1804896-d1839643-m14131-An_sai_Museum-Ansai_County_Shaanxi.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g1804896-d1839643-Reviews-m14131-An_sai_Museum-Ansai_County_Shaanxi.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;An\u0027sai Museum&quot;,
+        &quot;locationString&quot;: &quot;Ansai County, Shaanxi&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g187400-d207222-Reviews-m14131-Bach_Museum-Leipzig_Saxony.html&quot;,
+        &quot;phone&quot;: &quot;49-341-9137.200&quot;,
+        &quot;locationId&quot;: 207222,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/207222?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 4.201253890991211,
+        &quot;numReviews&quot;: 60,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;Bach Museum&quot;,
+        &quot;locationString&quot;: &quot;Leipzig, Saxony&quot;,
+        &quot;longitude&quot;: 12.372231,
+        &quot;attractionTypes&quot;: &quot;Specialty Museums, History Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g187400-d207222-m14131-Bach_Museum-Leipzig_Saxony.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g187400-d207222-m14131-Bach_Museum-Leipzig_Saxony.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/01/53/d3/9a/bach-museum.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g187400-d207222-Reviews-m14131-Bach_Museum-Leipzig_Saxony.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 51.33902,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#3 of 59 attractions in Leipzig&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g303851-d550647-Reviews-m14131-Badr_s_Museum-Farafra_New_Valley_Governorate.html&quot;,
+        &quot;locationId&quot;: 550647,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/550647?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g303851-d550647-m14131-Badr_s_Museum-Farafra_New_Valley_Governorate.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g303851-d550647-m14131-Badr_s_Museum-Farafra_New_Valley_Governorate.html&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/31/3e/16/filename-386804-10150385483082156.jpg&quot;,
+        &quot;rawRanking&quot;: 2.8956470489501953,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;numReviews&quot;: 1,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g303851-d550647-Reviews-m14131-Badr_s_Museum-Farafra_New_Valley_Governorate.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Badr\u0027s Museum&quot;,
+        &quot;locationString&quot;: &quot;Farafra, New Valley Governorate&quot;,
+        &quot;rating&quot;: 5.0,
+        &quot;ranking&quot;: &quot;#2 of 2 attractions in Farafra&quot;,
+        &quot;attractionTypes&quot;: &quot;History Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g147371-d152821-Reviews-m14131-Brac_Museum-Spot_Bay_Cayman_Brac_Cayman_Islands.html&quot;,
+        &quot;phone&quot;: &quot;345-948-2622&quot;,
+        &quot;locationId&quot;: 152821,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/152821?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g147371-d152821-m14131-Brac_Museum-Spot_Bay_Cayman_Brac_Cayman_Islands.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g147371-d152821-m14131-Brac_Museum-Spot_Bay_Cayman_Brac_Cayman_Islands.html&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 3.0572879314422607,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;numReviews&quot;: 2,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g147371-d152821-Reviews-m14131-Brac_Museum-Spot_Bay_Cayman_Brac_Cayman_Islands.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Brac Museum&quot;,
+        &quot;locationString&quot;: &quot;Spot Bay, Cayman Brac, Cayman Islands&quot;,
+        &quot;rating&quot;: 4.5,
+        &quot;ranking&quot;: &quot;#1 of 2 attractions in Spot Bay&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g150804-d155964-Reviews-m14131-City_Museum-Veracruz_Central_Mexico_and_Gulf_Coast.html&quot;,
+        &quot;phone&quot;: &quot;2-931-8410&quot;,
+        &quot;locationId&quot;: 155964,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/155964?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g150804-d155964-m14131-City_Museum-Veracruz_Central_Mexico_and_Gulf_Coast.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g150804-d155964-m14131-City_Museum-Veracruz_Central_Mexico_and_Gulf_Coast.html&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 2.797045946121216,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;numReviews&quot;: 8,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g150804-d155964-Reviews-m14131-City_Museum-Veracruz_Central_Mexico_and_Gulf_Coast.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;City Museum&quot;,
+        &quot;locationString&quot;: &quot;Veracruz, Central Mexico and Gulf Coast&quot;,
+        &quot;rating&quot;: 3.5,
+        &quot;ranking&quot;: &quot;#13 of 14 attractions in Veracruz&quot;,
+        &quot;attractionTypes&quot;: &quot;Museums&quot;
+      }
+    ]
+  },
+  &quot;metadata&quot;: {
+    &quot;total&quot;: 20,
+    &quot;version&quot;: &quot;1.1&quot;,
+    &quot;status&quot;: &quot;OK&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="c"># Note that these are grouped by category type within the &#39;items&#39; element.</span>
+<span class="n">json_obj</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">json_obj</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>[u&apos;attraction&apos;, u&apos;restaurant&apos;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+You can restrict the search to a certain geo or category (hotels, restaurants, geos, attractions) as well.
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">q</span> <span class="o">=</span> <span class="s">&quot;museum&quot;</span>
+<span class="n">geo_id</span> <span class="o">=</span> <span class="mi">30196</span>
+
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://api.tripadvisor.com/api/mobex/1.1/search/</span><span class="si">%s</span><span class="s">?key=</span><span class="si">%s</span><span class="s">&amp;limit=3&amp;geo=</span><span class="si">%d</span><span class="s">&amp;category=attractions&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">geo_id</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">response</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>{
+  &quot;items&quot;: {
+    &quot;attraction&quot;: [
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d139499-Reviews-m14131-Mexic_Arte_Museum-Austin_Texas.html&quot;,
+        &quot;phone&quot;: &quot;512 480 9373&quot;,
+        &quot;locationId&quot;: 139499,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/139499?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 2.785543918609619,
+        &quot;numReviews&quot;: 1,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;Mexic-Arte Museum&quot;,
+        &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+        &quot;longitude&quot;: -97.74278,
+        &quot;attractionTypes&quot;: &quot;Art Museums&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d139499-m14131-Mexic_Arte_Museum-Austin_Texas.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d139499-m14131-Mexic_Arte_Museum-Austin_Texas.html&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d139499-Reviews-m14131-Mexic_Arte_Museum-Austin_Texas.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 30.26684,
+        &quot;rating&quot;: 4.0,
+        &quot;ranking&quot;: &quot;#169 of 213 attractions in Austin&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d567175-Reviews-m14131-Austin_Fire_Museum-Austin_Texas.html&quot;,
+        &quot;locationId&quot;: 567175,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/567175?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d567175-m14131-Austin_Fire_Museum-Austin_Texas.html&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d567175-m14131-Austin_Fire_Museum-Austin_Texas.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/d6/ee/82/austin-fire-museum.jpg&quot;,
+        &quot;numReviews&quot;: 0,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d567175-Reviews-m14131-Austin_Fire_Museum-Austin_Texas.html#travelerReviews&quot;,
+        &quot;name&quot;: &quot;Austin Fire Museum&quot;,
+        &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+        &quot;longitude&quot;: -97.73959,
+        &quot;latitude&quot;: 30.26595,
+        &quot;attractionTypes&quot;: &quot;Specialty Museums&quot;
+      },
+      {
+        &quot;webUrl&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d139460-Reviews-m14131-O_Henry_Home_Museum-Austin_Texas.html&quot;,
+        &quot;phone&quot;: &quot;512 472 1903&quot;,
+        &quot;locationId&quot;: 139460,
+        &quot;thumbnailIsBlessed&quot;: true,
+        &quot;APIDetailUrl&quot;: &quot;http://api.tripadvisor.com/api/mobex/1.1/location/139460?key\u003d90880b62-09e9-4c2a-9cea-27a1bc669261&quot;,
+        &quot;categoryTranslated&quot;: &quot;attraction&quot;,
+        &quot;rankingCategory&quot;: &quot;attraction&quot;,
+        &quot;rawRanking&quot;: 3.4115610122680664,
+        &quot;numReviews&quot;: 15,
+        &quot;subcategoryKey&quot;: &quot;museums&quot;,
+        &quot;name&quot;: &quot;O. Henry Home \u0026 Museum&quot;,
+        &quot;locationString&quot;: &quot;Austin, Texas&quot;,
+        &quot;longitude&quot;: -97.73906,
+        &quot;attractionTypes&quot;: &quot;Historic Sites&quot;,
+        &quot;writeReviewURL&quot;: &quot;http://www.tripadvisor.com/UserReview-g30196-d139460-m14131-O_Henry_Home_Museum-Austin_Texas.html&quot;,
+        &quot;category&quot;: &quot;attraction&quot;,
+        &quot;viewPhotoURL&quot;: &quot;http://www.tripadvisor.com/LocationPhotos-g30196-d139460-m14131-O_Henry_Home_Museum-Austin_Texas.html&quot;,
+        &quot;thumbnail&quot;: &quot;http://media-cdn.tripadvisor.com/media/photo-t/02/6d/04/81/o-henry-home-museum.jpg&quot;,
+        &quot;subcategory&quot;: &quot;museums&quot;,
+        &quot;showReviewsURL&quot;: &quot;http://www.tripadvisor.com/Attraction_Review-g30196-d139460-Reviews-m14131-O_Henry_Home_Museum-Austin_Texas.html#travelerReviews&quot;,
+        &quot;latitude&quot;: 30.26574,
+        &quot;rating&quot;: 4.0,
+        &quot;ranking&quot;: &quot;#86 of 213 attractions in Austin&quot;
+      }
+    ]
+  },
+  &quot;metadata&quot;: {
+    &quot;total&quot;: 3,
+    &quot;version&quot;: &quot;1.1&quot;,
+    &quot;status&quot;: &quot;OK&quot;
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38683231-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
