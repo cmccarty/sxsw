@@ -1,6 +1,7 @@
 SXSW Trip Advisor API
 ====
 Travel Hackathon, 2013
+github: https://github.com/cmccarty/sxsw
 
 Documentation and Example code for the TripAdvisor API
 
