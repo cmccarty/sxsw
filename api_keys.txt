@@ -1,1 +1,7 @@
 # Test API keys will go here once they are made available
+
+# Each key has a limit of 500 calls/day (sorry!). If you run into limits, please use a different key.
+# We may assign keys to indivudual groups so that one project doesn't hit the limits for all the keys.  
+# For now, here are a few test keys
+
+90880b62-09e9-4c2a-9cea-27a1bc669261
