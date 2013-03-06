@@ -1,0 +1,290 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="./main.css"/>
+<body>
+<div class="stylehead">
+    <div class="header">
+      <div class="pagename">
+        [[<a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">main 1.1</a>]]
+      </div>
+      <div class="logo">mobex-api</div>
+    </div>
+    <div class="bar">
+    </div>
+</div>
+
+<div class="api">
+<div class="nav">
+      <div class="header">Your API Usage</div>
+    <div class="inside usage">
+      <ul>
+                  <li>Max calls per day: 500</li>
+                          <li>Max calls per second: 50</li>
+                                      <li>Calls made in the past day:<br> 61 (12.2% of quota)</li>
+                        </ul>
+    </div>
+    <div class="header">Navigation</div>
+  <div class="inside">
+    <ul>
+      <li><a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">mobex 1.1 API</a></li>
+        <ul>
+                                    <li><a href="./location.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">location</a></li>
+              <ul>
+                                                      <li><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></li>
+                                                                        <li><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                                        <li><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></li>
+                                                </ul>
+                                                <li><a href="./map.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">map</a></li>
+              <ul>
+                                                      <li><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                </ul>
+                                                <li><a href="./search.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">search</a></li>
+              <ul>
+                              </ul>
+                              </ul>
+      </li>
+     
+    </ul>
+  </div>
+</div>
+
+
+<div class="title">location-restaurants</div>
+<div class="object-text">
+      Return a list of all the restaurants in this location
+  </div>
+
+    
+  <div class="common-header">Request</div>
+
+  <div class="example-text">
+    <a href="http://api.tripadvisor.com/api/mobex/1.1/location/60745/restaurants?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">http://api.tripadvisor.com/api/mobex/1.1/location/60745/restaurants?key=438cf5df-dbae-4a24-bc6a-78fb861b7798</a>
+  </div>
+
+
+  <div class="common-header">Response</div>
+  <div class="response-text">
+  <pre>
+  {
+  "items": [
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d876959-Reviews-m14131-Sam_LaGrassa_s-Boston_Massachusetts.html",
+      "phone": "(617) 357-6861",
+      "cuisine": "Delicatessen, Fast Food",
+      "locationId": 876959,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/876959?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "categoryTranslated": "restaurant",
+      "rankingCategory": "restaurant",
+      "rawRanking": 4.597373008728027,
+      "numReviews": 174,
+      "subcategoryKey": "fast_food",
+      "name": "Sam LaGrassa\u0027s",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.05991,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d876959-m14131-Sam_LaGrassa_s-Boston_Massachusetts.html",
+      "category": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d876959-m14131-Sam_LaGrassa_s-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/01/87/14/7d/boston.jpg",
+      "price": "$1 - $20",
+      "subcategory": "Fast food",
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d876959-Reviews-m14131-Sam_LaGrassa_s-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.35696,
+      "rating": 4.5,
+      "ranking": "#1 of 1,392 restaurants in Boston"
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d480031-Reviews-m14131-Galleria_Umberto-Boston_Massachusetts.html",
+      "phone": "617-227-5709",
+      "cuisine": "Italian, Pizza",
+      "locationId": 480031,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/480031?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "categoryTranslated": "restaurant",
+      "rankingCategory": "restaurant",
+      "rawRanking": 4.580573081970215,
+      "numReviews": 45,
+      "subcategoryKey": "sit_down",
+      "name": "Galleria Umberto",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.05431,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d480031-m14131-Galleria_Umberto-Boston_Massachusetts.html",
+      "category": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d480031-m14131-Galleria_Umberto-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/02/51/f8/30/galleria-umberto.jpg",
+      "price": "$4",
+      "subcategory": "Sit down",
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d480031-Reviews-m14131-Galleria_Umberto-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.363842,
+      "rating": 5.0,
+      "ranking": "#2 of 1,392 restaurants in Boston"
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d1937941-Reviews-m14131-Island_Creek_Oyster_Bar-Boston_Massachusetts.html",
+      "phone": "617-532-5300",
+      "cuisine": "American, Seafood",
+      "locationId": 1937941,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/1937941?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "categoryTranslated": "restaurant",
+      "rankingCategory": "restaurant",
+      "rawRanking": 4.569331169128418,
+      "numReviews": 532,
+      "subcategoryKey": "sit_down",
+      "name": "Island Creek Oyster Bar",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.09551,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d1937941-m14131-Island_Creek_Oyster_Bar-Boston_Massachusetts.html",
+      "category": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d1937941-m14131-Island_Creek_Oyster_Bar-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/02/22/e2/a9/oysters-were-divine.jpg",
+      "price": "$31 - $50",
+      "subcategory": "Sit down",
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d1937941-Reviews-m14131-Island_Creek_Oyster_Bar-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.34879,
+      "rating": 4.5,
+      "ranking": "#3 of 1,392 restaurants in Boston"
+    }
+  ],
+  "metadata": {
+    "total": 1931,
+    "status": "OK",
+    "version": "1.1"
+  }
+}
+  </pre>
+  </div>
+
+<div class="common-header">Properties</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+     <td>webUrl</td>
+     <td>the canonical URL on TripAdvisor for this location</td>
+  </tr>
+    <tr>
+     <td>phone</td>
+     <td>the phone number of the location</td>
+  </tr>
+    <tr>
+     <td>numReviews</td>
+     <td>the total number of user reviews for this location</td>
+  </tr>
+    <tr>
+     <td>name</td>
+     <td>the name of this location</td>
+  </tr>
+    <tr>
+     <td>locationId</td>
+     <td>the TripAdvisor ID of the location</td>
+  </tr>
+    <tr>
+     <td>locationString</td>
+     <td>the geographical name of the location where this location resides</td>
+  </tr>
+    <tr>
+     <td>latitude</td>
+     <td>the latitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>longitude</td>
+     <td>the longitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>rating</td>
+     <td>the rating of this location (1-5)</td>
+  </tr>
+    <tr>
+     <td>APIDetailUrl</td>
+     <td>an API URL which will return details about this location (URL contains escaped JSON)</td>
+  </tr>
+    <tr>
+     <td>thumbnail</td>
+     <td>a URL to a thumbnail image of the hotel</td>
+  </tr>
+    <tr>
+     <td>thumbnailIsBlessed</td>
+     <td>Boolean whether or not the thumbnail image is blessed, reviewed at TripAdvisor as being a photo of exceptional quality</td>
+  </tr>
+    <tr>
+     <td>price</td>
+     <td>the average price or average price range where available and apropos</td>
+  </tr>
+    <tr>
+     <td>category</td>
+     <td>type of property: attraction, restaurant, hotel</td>
+  </tr>
+    <tr>
+     <td>categoryTranslated</td>
+     <td>type of property: attraction, restaurant, hotel, translated to requested language</td>
+  </tr>
+    <tr>
+     <td>subcategory</td>
+     <td>Specific type of property, translated when possible to the requested language</td>
+  </tr>
+    <tr>
+     <td>subcategoryKey</td>
+     <td>Key representing the specific type of property</td>
+  </tr>
+    <tr>
+     <td>ranking</td>
+     <td>popularity of location out of all in the city</td>
+  </tr>
+    <tr>
+     <td>rawRanking</td>
+     <td>the raw popularity value of the location</td>
+  </tr>
+    <tr>
+     <td>cuisine</td>
+     <td>comma seperated list of cuisine types describing this location</td>
+  </tr>
+  </table>
+
+
+<div class="common-header">Options</div>
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+   </tr>
+      <tr>
+     <td>limit</td>
+     <td>number of items returned</td>
+   </tr>
+      <tr>
+     <td>offset</td>
+     <td>distance from the starting point of the list</td>
+   </tr>
+      <tr>
+     <td>currency</td>
+     <td>currency code to use for request and response (should follow ISO 4217)</td>
+   </tr>
+      <tr>
+     <td>sort</td>
+     <td>Method to sort the locations. Options are "popularity" and "distance". If sorting by distance, the "loc" param must be supplied</td>
+   </tr>
+      <tr>
+     <td>loc</td>
+     <td>Coordinates of the reference point to use when sorting by distance. Must be supplied using the following comma-separated format: longitude,latitude</td>
+   </tr>
+      <tr>
+     <td>subcategory</td>
+     <td>Filters results based on the subcategory of accommodation. Valid subcategories are: hotel, bb, inn, motel, specialty, all (shows all types of accommodations). </td>
+   </tr>
+      <tr>
+     <td>subcategory</td>
+     <td>Filters based on the subcategory of restaurant. Valid subcategories are: bakery, cafe, deli, fast_food, sit_down</td>
+   </tr>
+   </table>
+</div>
+<div class="bar footer"></div>
+</body>
+</html>
+

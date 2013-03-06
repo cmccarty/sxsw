@@ -1,0 +1,190 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="./main.css"/>
+<body>
+<div class="stylehead">
+    <div class="header">
+      <div class="pagename">
+        [[<a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">main 1.1</a>]]
+      </div>
+      <div class="logo">mobex-api</div>
+    </div>
+    <div class="bar">
+    </div>
+</div>
+
+<div class="api">
+<div class="nav">
+      <div class="header">Your API Usage</div>
+    <div class="inside usage">
+      <ul>
+                  <li>Max calls per day: 500</li>
+                          <li>Max calls per second: 50</li>
+                                      <li>Calls made in the past day:<br> 33 (6.6% of quota)</li>
+                        </ul>
+    </div>
+    <div class="header">Navigation</div>
+  <div class="inside">
+    <ul>
+      <li><a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">mobex 1.1 API</a></li>
+        <ul>
+                                    <li><a href="./location.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">location</a></li>
+              <ul>
+                                                      <li><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></li>
+                                                                        <li><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                                        <li><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></li>
+                                                </ul>
+                                                <li><a href="./map.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">map</a></li>
+              <ul>
+                                                      <li><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                </ul>
+                                                <li><a href="./search.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">search</a></li>
+              <ul>
+                              </ul>
+                              </ul>
+      </li>
+     
+    </ul>
+  </div>
+</div>
+
+
+<div class="title">location-reviews</div>
+<div class="object-text">
+      Return reviews of this location
+  </div>
+
+    
+  <div class="common-header">Request</div>
+
+  <div class="example-text">
+    <a href="http://api.tripadvisor.com/api/mobex/1.1/location/60745/reviews?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">http://api.tripadvisor.com/api/mobex/1.1/location/60745/reviews?key=438cf5df-dbae-4a24-bc6a-78fb861b7798</a>
+  </div>
+
+
+  <div class="common-header">Response</div>
+  <div class="response-text">
+  <pre>
+  {
+  "items": [
+    {
+      "id": 153749711,
+      "lang": "en",
+      "locationId": 120988,
+      "publishedDate": "Mar 5, 2013 1:44:03 AM",
+      "rating": 1,
+      "title": "Garbage",
+      "username": "mourg24",
+      "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d120988-r153749711-m14131-Hilton_Boston_Logan_Airport-Boston_Massachusetts.html#review153749711"
+    },
+    {
+      "id": 153748324,
+      "lang": "en",
+      "locationId": 1008272,
+      "publishedDate": "Mar 5, 2013 1:20:25 AM",
+      "rating": 5,
+      "title": "Great Food \u0026 Drinks",
+      "username": "conniesouky",
+      "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d1008272-r153748324-m14131-South_End_Buttery-Boston_Massachusetts.html#review153748324"
+    },
+    {
+      "id": 153748295,
+      "lang": "en",
+      "locationId": 144269,
+      "publishedDate": "Mar 5, 2013 1:19:10 AM",
+      "rating": 4,
+      "title": "Great Place",
+      "username": "conniesouky",
+      "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d144269-r153748295-m14131-Mapparium-Boston_Massachusetts.html#review153748295"
+    }
+  ],
+  "metadata": {
+    "total": 3144,
+    "version": "1.1",
+    "status": "OK"
+  }
+}
+  </pre>
+  </div>
+
+<div class="common-header">Properties</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+     <td>id</td>
+     <td>A unique ID of this review</td>
+  </tr>
+    <tr>
+     <td>memberId</td>
+     <td>The ID of the member who wrote this review</td>
+  </tr>
+    <tr>
+     <td>locationId</td>
+     <td>The ID of the location this review was written for (do we need this?)</td>
+  </tr>
+    <tr>
+     <td>rating</td>
+     <td>The ID of the member who wrote this review</td>
+  </tr>
+    <tr>
+     <td>title</td>
+     <td>The title of this review</td>
+  </tr>
+    <tr>
+     <td>publishedDate</td>
+     <td>The date the review was published to the site</td>
+  </tr>
+    <tr>
+     <td>lang</td>
+     <td>The language the review was written in (?)</td>
+  </tr>
+    <tr>
+     <td>text</td>
+     <td>The full text of the review</td>
+  </tr>
+    <tr>
+     <td>url</td>
+     <td>Direct link to this review on TripAdvisor's website</td>
+  </tr>
+  </table>
+
+
+<div class="common-header">Options</div>
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+   </tr>
+      <tr>
+     <td>limit</td>
+     <td>number of items returned</td>
+   </tr>
+      <tr>
+     <td>offset</td>
+     <td>distance from the starting point of the list</td>
+   </tr>
+      <tr>
+     <td>sort</td>
+     <td>The sort order to apply. One of "date", the "rating" the user gave, or the "popularity" of the review</td>
+   </tr>
+      <tr>
+     <td>order</td>
+     <td>"asc" or "desc"</td>
+   </tr>
+      <tr>
+     <td>textMode</td>
+     <td>How much of the review to return: "full", "snippet", or "none"</td>
+   </tr>
+   </table>
+</div>
+<div class="bar footer"></div>
+</body>
+</html>
+

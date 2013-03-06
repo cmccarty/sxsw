@@ -1,0 +1,319 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="./main.css"/>
+<body>
+<div class="stylehead">
+    <div class="header">
+      <div class="pagename">
+        [[<a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">main 1.1</a>]]
+      </div>
+      <div class="logo">mobex-api</div>
+    </div>
+    <div class="bar">
+    </div>
+</div>
+
+<div class="api">
+<div class="nav">
+      <div class="header">Your API Usage</div>
+    <div class="inside usage">
+      <ul>
+                  <li>Max calls per day: 500</li>
+                          <li>Max calls per second: 50</li>
+                                      <li>Calls made in the past day:<br> 29 (5.8% of quota)</li>
+                        </ul>
+    </div>
+    <div class="header">Navigation</div>
+  <div class="inside">
+    <ul>
+      <li><a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">mobex 1.1 API</a></li>
+        <ul>
+                                    <li><a href="./location.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">location</a></li>
+              <ul>
+                                                      <li><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></li>
+                                                                        <li><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                                        <li><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></li>
+                                                </ul>
+                                                <li><a href="./map.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">map</a></li>
+              <ul>
+                                                      <li><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                </ul>
+                                                <li><a href="./search.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">search</a></li>
+              <ul>
+                              </ul>
+                              </ul>
+      </li>
+    
+    </ul>
+  </div>
+</div>
+
+
+<div class="title">map</div>
+<div class="object-text">
+      Find locations based on latitude/longitude
+  </div>
+
+    
+  <div class="common-header">Request</div>
+
+  <div class="example-text">
+    <a href="http://api.tripadvisor.com/api/mobex/1.1/map/42.33141,-71.099396?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">http://api.tripadvisor.com/api/mobex/1.1/map/42.33141,-71.099396?key=438cf5df-dbae-4a24-bc6a-78fb861b7798</a>
+  </div>
+
+
+  <div class="common-header">Response</div>
+  <div class="response-text">
+  <pre>
+  {
+  "items": [
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d3398229-Reviews-m14131-Wan_Convenience_Store-Boston_Massachusetts.html",
+      "phone": "617-445-4268",
+      "locationId": 3398229,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/3398229?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d3398229-m14131-Wan_Convenience_Store-Boston_Massachusetts.html",
+      "categoryTranslated": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d3398229-m14131-Wan_Convenience_Store-Boston_Massachusetts.html",
+      "distance": ".06",
+      "category": "restaurant",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/03/33/89/da/wan-convenience-store.jpg",
+      "numReviews": 0,
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d3398229-Reviews-m14131-Wan_Convenience_Store-Boston_Massachusetts.html#travelerReviews",
+      "name": "Wan Convenience Store",
+      "locationString": "Boston, Massachusetts",
+      "bearing": "north",
+      "longitude": -71.099556,
+      "latitude": 42.3322
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d914472-Reviews-m14131-A_K_s_Takeout-Boston_Massachusetts.html",
+      "phone": "(617) 541-0300",
+      "locationId": 914472,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/914472?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d914472-m14131-A_K_s_Takeout-Boston_Massachusetts.html",
+      "categoryTranslated": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d914472-m14131-A_K_s_Takeout-Boston_Massachusetts.html",
+      "distance": ".18",
+      "category": "restaurant",
+      "numReviews": 0,
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d914472-Reviews-m14131-A_K_s_Takeout-Boston_Massachusetts.html#travelerReviews",
+      "name": "A K\u0027s Takeout",
+      "locationString": "Boston, Massachusetts",
+      "bearing": "east",
+      "longitude": -71.09586,
+      "latitude": 42.33175
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Restaurant_Review-g60745-d3467482-Reviews-m14131-The_Crossing_Bar-Boston_Massachusetts.html",
+      "cuisine": "American",
+      "locationId": 3467482,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/3467482?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "categoryTranslated": "restaurant",
+      "distance": ".23",
+      "rankingCategory": "restaurant",
+      "rawRanking": 2.5815210342407227,
+      "numReviews": 1,
+      "subcategoryKey": "sit_down",
+      "name": "The Crossing Bar",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.10286,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d3467482-m14131-The_Crossing_Bar-Boston_Massachusetts.html",
+      "category": "restaurant",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d3467482-m14131-The_Crossing_Bar-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/03/34/d8/24/the-crossing-bar.jpg",
+      "subcategory": "Sit down",
+      "showReviewsURL": "http://www.tripadvisor.com/Restaurant_Review-g60745-d3467482-Reviews-m14131-The_Crossing_Bar-Boston_Massachusetts.html#travelerReviews",
+      "bearing": "northwest",
+      "latitude": 42.33344,
+      "rating": 4.0,
+      "ranking": "#1,027 of 1,392 restaurants in Boston"
+    }
+  ],
+  "metadata": {
+    "total": 3552,
+    "status": "OK",
+    "version": "1.1"
+  }
+}
+  </pre>
+  </div>
+
+<div class="common-header">Properties</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+     <td>webUrl</td>
+     <td>the canonical URL on TripAdvisor for this location</td>
+  </tr>
+    <tr>
+     <td>phone</td>
+     <td>the phone number of the location</td>
+  </tr>
+    <tr>
+     <td>numReviews</td>
+     <td>the total number of user reviews for this location</td>
+  </tr>
+    <tr>
+     <td>name</td>
+     <td>the name of this location</td>
+  </tr>
+    <tr>
+     <td>locationId</td>
+     <td>the TripAdvisor ID of the location</td>
+  </tr>
+    <tr>
+     <td>locationString</td>
+     <td>the geographical name of the location where this location resides</td>
+  </tr>
+    <tr>
+     <td>latitude</td>
+     <td>the latitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>longitude</td>
+     <td>the longitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>rating</td>
+     <td>the rating of this location (1-5)</td>
+  </tr>
+    <tr>
+     <td>APIDetailUrl</td>
+     <td>an API URL which will return details about this location (URL contains escaped JSON)</td>
+  </tr>
+    <tr>
+     <td>thumbnail</td>
+     <td>a URL to a thumbnail image of the hotel</td>
+  </tr>
+    <tr>
+     <td>thumbnailIsBlessed</td>
+     <td>Boolean whether or not the thumbnail image is blessed, reviewed at TripAdvisor as being a photo of exceptional quality</td>
+  </tr>
+    <tr>
+     <td>hotelClass</td>
+     <td>the class of this hotel (1-5)</td>
+  </tr>
+    <tr>
+     <td>price</td>
+     <td>the average price or average price range where available and apropos</td>
+  </tr>
+    <tr>
+     <td>category</td>
+     <td>type of property: attraction, restaurant, hotel</td>
+  </tr>
+    <tr>
+     <td>categoryTranslated</td>
+     <td>type of property: attraction, restaurant, hotel, translated to requested language</td>
+  </tr>
+    <tr>
+     <td>subcategory</td>
+     <td>Specific type of property, translated when possible to the requested language</td>
+  </tr>
+    <tr>
+     <td>subcategoryKey</td>
+     <td>Key representing the specific type of property</td>
+  </tr>
+    <tr>
+     <td>ranking</td>
+     <td>popularity of location out of all in the city</td>
+  </tr>
+    <tr>
+     <td>rawRanking</td>
+     <td>the raw popularity value of the location</td>
+  </tr>
+    <tr>
+     <td>cuisine</td>
+     <td>comma seperated list of cuisine types describing this location</td>
+  </tr>
+    <tr>
+     <td>attractionTypes</td>
+     <td>comma seperated list of type names describing this location</td>
+  </tr>
+    <tr>
+     <td>bearing</td>
+     <td>the direction of this location from the given lat/long or rectangle center</td>
+  </tr>
+    <tr>
+     <td>distance</td>
+     <td>the distance in miles of this location from the given lat/long or rectangle center</td>
+  </tr>
+  </table>
+
+<div class="common-header">Connections</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+            <tr>
+                <td><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></td>
+        <td>Return all the attractions near the specified lat/long sorted by distance</td>
+      </tr>
+                <tr>
+                <td><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></td>
+        <td>Return all the hotels near the specified lat/long sorted by distance</td>
+      </tr>
+                <tr>
+                <td><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></td>
+        <td>Return all the restaurants near the specified lat/long sorted by distance</td>
+      </tr>
+      </table>
+
+<div class="common-header">Options</div>
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+   </tr>
+      <tr>
+     <td>limit</td>
+     <td>number of items returned</td>
+   </tr>
+      <tr>
+     <td>offset</td>
+     <td>distance from the starting point of the list</td>
+   </tr>
+      <tr>
+     <td>currency</td>
+     <td>currency code to use for request and response (should follow ISO 4217)</td>
+   </tr>
+      <tr>
+     <td>sort</td>
+     <td>Method to sort the locations. Options are "popularity" and "distance". If sorting by distance, the "loc" param must be supplied</td>
+   </tr>
+      <tr>
+     <td>loc</td>
+     <td>Coordinates of the reference point to use when sorting by distance. Must be supplied using the following comma-separated format: longitude,latitude</td>
+   </tr>
+      <tr>
+     <td>subcategory</td>
+     <td>Filters results based on the subcategory of accommodation. Valid subcategories are: hotel, bb, inn, motel, specialty, all (shows all types of accommodations). </td>
+   </tr>
+      <tr>
+     <td>lunit</td>
+     <td>length unit (either 'mi' or 'km') which overrides the default length units used in input and output</td>
+   </tr>
+      <tr>
+     <td>distance</td>
+     <td>distance in miles (unless another unit is specified using lunit) defining the the width and height of the bounding rectangle around the center when specified. Defaults to 10 miles.</td>
+   </tr>
+      <tr>
+     <td>q</td>
+     <td>Query to filter by</td>
+   </tr>
+   </table>
+</div>
+<div class="bar footer"></div>
+</body>
+</html>
+

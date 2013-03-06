@@ -1,0 +1,292 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="./main.css"/>
+<body>
+<div class="stylehead">
+    <div class="header">
+      <div class="pagename">
+        [[<a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">main 1.1</a>]]
+      </div>
+      <div class="logo">mobex-api</div>
+    </div>
+    <div class="bar">
+    </div>
+</div>
+
+<div class="api">
+<div class="nav">
+      <div class="header">Your API Usage</div>
+    <div class="inside usage">
+      <ul>
+                  <li>Max calls per day: 500</li>
+                          <li>Max calls per second: 50</li>
+                                      <li>Calls made in the past day:<br> 59 (11.8% of quota)</li>
+                        </ul>
+    </div>
+    <div class="header">Navigation</div>
+  <div class="inside">
+    <ul>
+      <li><a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">mobex 1.1 API</a></li>
+        <ul>
+                                    <li><a href="./location.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">location</a></li>
+              <ul>
+                                                      <li><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></li>
+                                                                        <li><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                                        <li><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></li>
+                                                </ul>
+                                                <li><a href="./map.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">map</a></li>
+              <ul>
+                                                      <li><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                </ul>
+                                                <li><a href="./search.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">search</a></li>
+              <ul>
+                              </ul>
+                              </ul>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<div class="title">location-accommodations</div>
+<div class="object-text">
+      Return reviews of this location
+  </div>
+
+    
+  <div class="common-header">Request</div>
+
+  <div class="example-text">
+    <a href="http://api.tripadvisor.com/api/mobex/1.1/location/60745/accommodations?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">http://api.tripadvisor.com/api/mobex/1.1/location/60745/accommodations?key=438cf5df-dbae-4a24-bc6a-78fb861b7798</a>
+  </div>
+
+
+  <div class="common-header">Response</div>
+  <div class="response-text">
+  <pre>
+  {
+  "items": [
+    {
+      "webUrl": "http://www.tripadvisor.com/Hotel_Review-g60745-d1467037-Reviews-m14131-Green_Turtle_Floating_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "phone": "+1 617-337-0202",
+      "ownerWebsite": "www.greenturtlebb.com",
+      "locationId": 1467037,
+      "thumbnailIsBlessed": false,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/1467037?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "hotelClass": 0,
+      "categoryTranslated": "hotel",
+      "rankingCategory": "bb",
+      "rawRanking": 4.8888421058654785,
+      "numReviews": 196,
+      "subcategoryKey": "bb",
+      "name": "Green Turtle Floating Bed and Breakfast",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.05005,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d1467037-m14131-Green_Turtle_Floating_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "category": "hotel",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d1467037-m14131-Green_Turtle_Floating_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/01/76/5f/ac/green-turtle-floating.jpg",
+      "price": "$225",
+      "checkRatesURL": "http://www.tripadvisor.com/MobileCheckRates-g60745-d1467037-a_area.QC__5F__mobile__5F__API-m14131-Green_Turtle_Floating_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "subcategory": "Bed and Breakfast",
+      "showReviewsURL": "http://www.tripadvisor.com/Hotel_Review-g60745-d1467037-Reviews-m14131-Green_Turtle_Floating_Bed_and_Breakfast-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.37613,
+      "rating": 5.0,
+      "ranking": "#1 of 48 B\u0026Bs / Inns in Boston"
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Hotel_Review-g60745-d258705-Reviews-m14131-Hotel_Commonwealth-Boston_Massachusetts.html",
+      "phone": "1 866-784-4000",
+      "ownerWebsite": "www.hotelcommonwealth.com",
+      "locationId": 258705,
+      "thumbnailIsBlessed": true,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/258705?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "hotelClass": 4,
+      "categoryTranslated": "hotel",
+      "rankingCategory": "hotel",
+      "rawRanking": 4.76085901260376,
+      "numReviews": 1656,
+      "subcategoryKey": "hotel",
+      "name": "Hotel Commonwealth",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.09516,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d258705-m14131-Hotel_Commonwealth-Boston_Massachusetts.html",
+      "category": "hotel",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d258705-m14131-Hotel_Commonwealth-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/02/51/ad/2e/lobby.jpg",
+      "price": "$214 - $513",
+      "checkRatesURL": "http://www.tripadvisor.com/MobileCheckRates-g60745-d258705-a_area.QC__5F__mobile__5F__API-m14131-Hotel_Commonwealth-Boston_Massachusetts.html",
+      "subcategory": "Hotel",
+      "showReviewsURL": "http://www.tripadvisor.com/Hotel_Review-g60745-d258705-Reviews-m14131-Hotel_Commonwealth-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.34879,
+      "rating": 5.0,
+      "ranking": "#1 of 75 hotels in Boston"
+    },
+    {
+      "webUrl": "http://www.tripadvisor.com/Hotel_Review-g60745-d254295-Reviews-m14131-Encore_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "phone": "+1 617-247-3425",
+      "ownerWebsite": "www.encorebandb.com",
+      "locationId": 254295,
+      "thumbnailIsBlessed": false,
+      "APIDetailUrl": "http://api.tripadvisor.com/api/mobex/1.1/location/254295?key\u003d438cf5df-dbae-4a24-bc6a-78fb861b7798",
+      "hotelClass": 0,
+      "categoryTranslated": "hotel",
+      "rankingCategory": "bb",
+      "rawRanking": 4.74055814743042,
+      "numReviews": 491,
+      "subcategoryKey": "bb",
+      "name": "Encore Bed and Breakfast",
+      "locationString": "Boston, Massachusetts",
+      "longitude": -71.07693,
+      "writeReviewURL": "http://www.tripadvisor.com/UserReview-g60745-d254295-m14131-Encore_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "category": "hotel",
+      "viewPhotoURL": "http://www.tripadvisor.com/LocationPhotos-g60745-d254295-m14131-Encore_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/01/c5/d2/3f/albee-room.jpg",
+      "price": "$145 - $250",
+      "checkRatesURL": "http://www.tripadvisor.com/MobileCheckRates-g60745-d254295-a_area.QC__5F__mobile__5F__API-m14131-Encore_Bed_and_Breakfast-Boston_Massachusetts.html",
+      "subcategory": "Bed and Breakfast",
+      "showReviewsURL": "http://www.tripadvisor.com/Hotel_Review-g60745-d254295-Reviews-m14131-Encore_Bed_and_Breakfast-Boston_Massachusetts.html#travelerReviews",
+      "latitude": 42.34165,
+      "rating": 5.0,
+      "ranking": "#2 of 48 B\u0026Bs / Inns in Boston"
+    }
+  ],
+  "metadata": {
+    "total": 137,
+    "status": "OK",
+    "version": "1.1"
+  }
+}
+  </pre>
+  </div>
+
+<div class="common-header">Properties</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+     <td>webUrl</td>
+     <td>the canonical URL on TripAdvisor for this location</td>
+  </tr>
+    <tr>
+     <td>phone</td>
+     <td>the phone number of the location</td>
+  </tr>
+    <tr>
+     <td>numReviews</td>
+     <td>the total number of user reviews for this location</td>
+  </tr>
+    <tr>
+     <td>name</td>
+     <td>the name of this location</td>
+  </tr>
+    <tr>
+     <td>locationId</td>
+     <td>the TripAdvisor ID of the location</td>
+  </tr>
+    <tr>
+     <td>locationString</td>
+     <td>the geographical name of the location where this location resides</td>
+  </tr>
+    <tr>
+     <td>latitude</td>
+     <td>the latitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>longitude</td>
+     <td>the longitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>rating</td>
+     <td>the rating of this location (1-5)</td>
+  </tr>
+    <tr>
+     <td>APIDetailUrl</td>
+     <td>an API URL which will return details about this location (URL contains escaped JSON)</td>
+  </tr>
+    <tr>
+     <td>thumbnail</td>
+     <td>a URL to a thumbnail image of the hotel</td>
+  </tr>
+    <tr>
+     <td>thumbnailIsBlessed</td>
+     <td>Boolean whether or not the thumbnail image is blessed, reviewed at TripAdvisor as being a photo of exceptional quality</td>
+  </tr>
+    <tr>
+     <td>hotelClass</td>
+     <td>the class of this hotel (1-5)</td>
+  </tr>
+    <tr>
+     <td>price</td>
+     <td>the average price or average price range where available and apropos</td>
+  </tr>
+    <tr>
+     <td>category</td>
+     <td>type of property: attraction, restaurant, hotel</td>
+  </tr>
+    <tr>
+     <td>categoryTranslated</td>
+     <td>type of property: attraction, restaurant, hotel, translated to requested language</td>
+  </tr>
+    <tr>
+     <td>subcategory</td>
+     <td>Specific type of property, translated when possible to the requested language</td>
+  </tr>
+    <tr>
+     <td>subcategoryKey</td>
+     <td>Key representing the specific type of property</td>
+  </tr>
+    <tr>
+     <td>ranking</td>
+     <td>popularity of location out of all in the city</td>
+  </tr>
+    <tr>
+     <td>rawRanking</td>
+     <td>the raw popularity value of the location</td>
+  </tr>
+  </table>
+
+
+<div class="common-header">Options</div>
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+   </tr>
+      <tr>
+     <td>limit</td>
+     <td>number of items returned</td>
+   </tr>
+      <tr>
+     <td>offset</td>
+     <td>distance from the starting point of the list</td>
+   </tr>
+      <tr>
+     <td>currency</td>
+     <td>currency code to use for request and response (should follow ISO 4217)</td>
+   </tr>
+      <tr>
+     <td>sort</td>
+     <td>Method to sort the locations. Options are "popularity" and "distance". If sorting by distance, the "loc" param must be supplied</td>
+   </tr>
+      <tr>
+     <td>loc</td>
+     <td>Coordinates of the reference point to use when sorting by distance. Must be supplied using the following comma-separated format: longitude,latitude</td>
+   </tr>
+      <tr>
+     <td>subcategory</td>
+     <td>Filters results based on the subcategory of accommodation. Valid subcategories are: hotel, bb, inn, motel, specialty, all (shows all types of accommodations). </td>
+   </tr>
+   </table>
+</div>
+<div class="bar footer"></div>
+</body>
+</html>
+

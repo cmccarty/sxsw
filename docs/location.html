@@ -1,0 +1,281 @@
+
+<html>
+<link rel="stylesheet" type="text/css" href="./main.css"/>
+<body>
+<div class="stylehead">
+    <div class="header">
+      <div class="pagename">
+        [[<a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">main 1.1</a>]]
+      </div>
+      <div class="logo">mobex-api</div>
+    </div>
+    <div class="bar">
+    </div>
+</div>
+
+<div class="api">
+<div class="nav">
+      <div class="header">Your API Usage</div>
+    <div class="inside usage">
+      <ul>
+                  <li>Max calls per day: 500</li>
+                          <li>Max calls per second: 50</li>
+                                      <li>Calls made in the past day:<br> 42 (8.4% of quota)</li>
+                        </ul>
+    </div>
+    <div class="header">Navigation</div>
+  <div class="inside">
+    <ul>
+      <li><a href="./index.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">mobex 1.1 API</a></li>
+        <ul>
+                                    <li><a href="./location.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">location</a></li>
+              <ul>
+                                                      <li><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></li>
+                                                                        <li><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                                        <li><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></li>
+                                                </ul>
+                                                <li><a href="./map.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">map</a></li>
+              <ul>
+                                                      <li><a href="./map-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></li>
+                                                                        <li><a href="./map-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></li>
+                                                                        <li><a href="./map-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></li>
+                                                </ul>
+                                                <li><a href="./search.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">search</a></li>
+              <ul>
+                              </ul>
+                              </ul>
+      </li>
+     
+    </ul>
+  </div>
+</div>
+
+
+<div class="title">location</div>
+<div class="object-text">
+      A physical place (e.g. hotel, restaurant, attraction)
+  </div>
+
+    
+  <div class="common-header">Request</div>
+
+  <div class="example-text">
+    <a href="http://api.tripadvisor.com/api/mobex/1.1/location/60745?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">http://api.tripadvisor.com/api/mobex/1.1/location/60745?key=438cf5df-dbae-4a24-bc6a-78fb861b7798</a>
+  </div>
+
+
+  <div class="common-header">Response</div>
+  <div class="response-text">
+  <pre>
+  {
+  "items": {
+    "webUrl": "http://www.tripadvisor.com/Tourism-g60745-m14131-Boston_Massachusetts-Vacations.html",
+    "reviews": [
+      {
+        "summary": "I love breakfast and I love this place.  I have relatives in the area so I visit Boston and Beacon Hill often.  I like the Paramount so much I\u0027ll walk here for breakfast even when staying relatively...",
+        "author": "DimitriDonskoi",
+        "title": "Best breakfast on Beacon Hill",
+        "rating": 5,
+        "date": "Mar 5, 2013 6:58:08 AM",
+        "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d321949-r153762405-m14131-The_Paramount-Boston_Massachusetts.html#review153762405"
+      },
+      {
+        "summary": "Q is more than just going out to dinner- it’s an entertainment venue where the patrons are the stars.  The concept was completely foreign to us but the extremely friendly staff walked us through the...",
+        "author": "DaveScaer",
+        "title": "A lot to like.",
+        "rating": 4,
+        "date": "Mar 5, 2013 6:42:38 AM",
+        "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d2285799-r153761550-m14131-The_Q_Restaurant-Boston_Massachusetts.html#review153761550"
+      },
+      {
+        "summary": "Good Asian themed menu with lots of healthy options. The raw juice is awesome!  The service is efficient and friendly. Can\u0027t go wrong with Wagamama.",
+        "author": "RISLV",
+        "title": "Great place for lunch",
+        "rating": 4,
+        "date": "Mar 5, 2013 4:33:07 AM",
+        "url": "http://www.tripadvisor.com/ShowUserReviews-g60745-d660636-r153755366-m14131-Wagamama-Boston_Massachusetts.html#review153755366"
+      }
+    ],
+    "hotelCount": 75,
+    "locationId": 60745,
+    "thumbnailIsBlessed": true,
+    "restaurantCount": 1931,
+    "photo": {
+      "150x150": "http://media-cdn.tripadvisor.com/media/photo-l/01/58/ab/a5/the-view.jpg",
+      "250x205": "http://media-cdn.tripadvisor.com/media/photo-f/01/58/ab/a5/the-view.jpg",
+      "original": "http://media-cdn.tripadvisor.com/media/photo-o/01/58/ab/a5/the-view.jpg",
+      "550x450": "http://media-cdn.tripadvisor.com/media/photo-s/01/58/ab/a5/the-view.jpg"
+    },
+    "thumbnail": "http://media-cdn.tripadvisor.com/media/photo-t/01/58/ab/a5/the-view.jpg",
+    "attractionCount": 426,
+    "numReviews": 294,
+    "description": "You\u0027ve got to walk the Freedom Trail the first time you visit Boston. That\u0027s just a given. Make sure you step off the line on the pavement, though, and explore some of Boston\u0027s fine museums (try the Gardner—art masterpieces displayed in their collector\u0027s mansion) and old neighborhoods (like the North End, where you can get the best cannoli this side of Italy). You can\u0027t claim to have experienced real Boston culture, though, unless you\u0027ve watched a Red Sox game from the bleachers.",
+    "name": "Boston",
+    "locationString": "Boston, Massachusetts",
+    "ancestors": [
+      {
+        "abbrv": "MA",
+        "level": "State",
+        "name": "Massachusetts",
+        "locationId": 28942
+      },
+      {
+        "level": "Country",
+        "name": "United States",
+        "locationId": 191
+      }
+    ],
+    "longitude": -71.12589,
+    "latitude": 42.15843,
+    "accommodationCount": 137
+  },
+  "metadata": {
+    "status": "OK",
+    "version": "1.1"
+  }
+}
+  </pre>
+  </div>
+
+<div class="common-header">Properties</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+     <td>webUrl</td>
+     <td>the canonical URL on TripAdvisor for this location</td>
+  </tr>
+    <tr>
+     <td>numReviews</td>
+     <td>the total number of user reviews for this location</td>
+  </tr>
+    <tr>
+     <td>name</td>
+     <td>the name of this location</td>
+  </tr>
+    <tr>
+     <td>locationId</td>
+     <td>the TripAdvisor ID of the location</td>
+  </tr>
+    <tr>
+     <td>locationString</td>
+     <td>the geographical name of the location where this location resides</td>
+  </tr>
+    <tr>
+     <td>latitude</td>
+     <td>the latitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>longitude</td>
+     <td>the longitude of this location in degrees</td>
+  </tr>
+    <tr>
+     <td>reviews</td>
+     <td>sample review snippets from this location</td>
+  </tr>
+    <tr>
+     <td>title</td>
+     <td>the title of the review</td>
+  </tr>
+    <tr>
+     <td>rating</td>
+     <td>the rating of this location (1-5) given by the review author</td>
+  </tr>
+    <tr>
+     <td>photo</td>
+     <td>photograph of the location when available</td>
+  </tr>
+    <tr>
+     <td>hotelCount</td>
+     <td>the number of hotels inside of a geographic location</td>
+  </tr>
+    <tr>
+     <td>restaurantCount</td>
+     <td>the number of restaurants inside of a geographic location</td>
+  </tr>
+    <tr>
+     <td>attractionCount</td>
+     <td>the number of attractions inside of a geographic location</td>
+  </tr>
+    <tr>
+     <td>accommodationCount</td>
+     <td>the number of accommodations (Hotels, Bed and Breakfasts, other types) inside of a geographic location</td>
+  </tr>
+    <tr>
+     <td>writeReview</td>
+     <td>URL to write a review about this location</td>
+  </tr>
+    <tr>
+     <td>showReviewsURL</td>
+     <td>the URL to display all reviews for a location</td>
+  </tr>
+    <tr>
+     <td>viewPhotoURL</td>
+     <td>the URL to display all photos for a location</td>
+  </tr>
+    <tr>
+     <td>writeReviewURL</td>
+     <td>the URL to write a review for a location</td>
+  </tr>
+    <tr>
+     <td>checkRatesURL</td>
+     <td>the URL to display check rates for a location</td>
+  </tr>
+    <tr>
+     <td>thumbnail</td>
+     <td>a URL to a thumbnail image of the hotel</td>
+  </tr>
+    <tr>
+     <td>thumbnailIsBlessed</td>
+     <td>Boolean whether or not the thumbnail image is blessed, reviewed at TripAdvisor as being a photo of exceptional quality</td>
+  </tr>
+  </table>
+
+<div class="common-header">Connections</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+            <tr>
+                <td><a href="./location-accommodations.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">accommodations</a></td>
+        <td>Return reviews of this location</td>
+      </tr>
+                <tr>
+                <td><a href="./location-attractions.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">attractions</a></td>
+        <td>Return a list of all the attractions in this location</td>
+      </tr>
+                <tr>
+                <td><a href="./location-hotels.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">hotels</a></td>
+        <td>Return a list of all the hotels in this location</td>
+      </tr>
+                <tr>
+                <td><a href="./location-restaurants.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">restaurants</a></td>
+        <td>Return a list of all the restaurants in this location</td>
+      </tr>
+                <tr>
+                <td><a href="./location-reviews.html?key=438cf5df-dbae-4a24-bc6a-78fb861b7798">reviews</a></td>
+        <td>Return reviews of this location</td>
+      </tr>
+      </table>
+
+<div class="common-header">Options</div>
+<table>
+   <tr>
+     <th>Name</th>
+     <th>Description</th>
+   </tr>
+      <tr>
+     <td>currency</td>
+     <td>currency code to use for request and response (should follow ISO 4217)</td>
+   </tr>
+   </table>
+</div>
+<div class="bar footer"></div>
+</body>
+</html>
+
